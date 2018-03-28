@@ -7,6 +7,18 @@
     <groupId>com.huwang</groupId>
     <artifactId>traffic</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
 
+    <modules>
+        <module>traffic_common</module>
+        <module>traffic_manager</module>
+        <module>traffic_portal</module>
+    </modules>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.0.RELEASE</version>
+    </parent>
 
 </project>
