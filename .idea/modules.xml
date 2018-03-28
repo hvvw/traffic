@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/traffic.iml" filepath="$PROJECT_DIR$/traffic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/traffic_common/traffic_common.iml" filepath="$PROJECT_DIR$/traffic_common/traffic_common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/traffic_manager/traffic_manager.iml" filepath="$PROJECT_DIR$/traffic_manager/traffic_manager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/traffic_portal/traffic_portal.iml" filepath="$PROJECT_DIR$/traffic_portal/traffic_portal.iml" />
+    </modules>
+  </component>
+</project>
