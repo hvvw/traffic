@@ -2,7 +2,7 @@
 <!-- Logback configuration. See http://logback.qos.ch/manual/index.html -->
 <configuration scan="true" scanPeriod="10 seconds">
 
-    <property name="LOG_PATH" value="d://log/traffic_portal/"/>
+    <property name="LOG_PATH" value="d://log/traffic_manager/"/>
 
     <appender name="INFO_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
