@@ -26,13 +26,11 @@ public class LoadService {
 
     public List<LoadEntity> getLoads(double lat,double lng,int unit)
     {
-        log.info("get loads,params:{},{},{}",lat,lng,unit);
         List<LoadEntity> response=dao.getLoads(lat,lng,unit);
         List<LoadEntity> loads=new ArrayList<>();
         ObjectMapper mapper = new ObjectMapper();
         try {
             String mapJakcson = mapper.writeValueAsString(response);
-            log.info("json mess:" + mapJakcson);
             JavaType javaType = mapper.getTypeFactory().constructParametricType(ArrayList.class, LoadEntity.class);
             loads = mapper.readValue(mapJakcson, javaType);
         }catch (Exception e){}

@@ -15,6 +15,7 @@ public class LoadEntity implements Serializable {
     private int lane;
     private String pavementType;
     private int pavementWidth;
+    private int subgradeWidth;
     private Date createTime;
     private boolean display;
     private double pointLat;
@@ -85,6 +86,15 @@ public class LoadEntity implements Serializable {
 
     public void setPavementWidth(int pavementWidth) {
         this.pavementWidth = pavementWidth;
+    }
+
+    @Column(name="subgrade_width")
+    public int getSubgradeWidth() {
+        return subgradeWidth;
+    }
+
+    public void setSubgradeWidth(int subgradeWidth) {
+        this.subgradeWidth = subgradeWidth;
     }
 
     @Column(name="create_time")
