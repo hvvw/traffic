@@ -14,10 +14,10 @@ public class AgencyEntity implements Serializable {
 
     private int id;
     private String name;
-    private Date createDate;
     private String desc;
     private double lat;
     private double lng;
+    private Date createDate;
 
     @Id
     @Column(name="id")
@@ -38,22 +38,13 @@ public class AgencyEntity implements Serializable {
         this.name = name;
     }
 
-    @Column(name="create_date")
-    public Date getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
-    }
-
     @Column(name="desc")
-    public String getDesc() {
+    public String getType() {
         return desc;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setType(String type) {
+        this.desc = type;
     }
 
     @Column(name="lat")
@@ -73,4 +64,14 @@ public class AgencyEntity implements Serializable {
     public void setLng(double lng) {
         this.lng = lng;
     }
+
+    @Column(name="create_date")
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
 }

@@ -10,7 +10,7 @@ import java.util.Date;
 
 @Entity
 @Table(name="t_facilities")
-public class FaciliticsEntity implements Serializable {
+public class FacilitiesEntity implements Serializable {
 
     private int id;
     private String name;

@@ -80,30 +80,26 @@
             <main class="app-content">
               <div id="allmap"></div>
               <div id="detail" class="bootstrap-frm">
-                <h1>路线数据详情</h1>
+                <h1>公路养护、绿化数据详情</h1>
                 <label>
-                  <span>道路名:</span>
-                  <p id="name"></p>
+                  <span>所属路段:</span>
+                  <p id="loadName"></p>
                 </label>
                 <label>
-                  <span>道路技术等级:</span>
-                  <p id="techLevel"></p>
+                  <span>路面现状:</span>
+                  <p id="situation"></p>
                 </label>
                 <label>
-                  <span>车道数:</span>
-                  <p id="lane"></p>
+                  <span>路面病害:</span>
+                  <p id="disease"></p>
                 </label>
                 <label>
-                  <span>路面面层类型:</span>
-                  <p id="pavementType"></p>
+                  <span>绿化面积:</span>
+                  <p id="plantVariety"></p>
                 </label>
                 <label>
-                  <span>路面宽度:</span>
-                  <p id="pavementWidth"></p>
-                </label>
-                <label>
-                  <span>路基宽度:</span>
-                  <p id="subgradeWidth"></p>
+                  <span>绿化品种:</span>
+                  <p id="afforestedArea"></p>
                 </label>
                 <input type="button" class="button" value="关闭" onclick="closeDetail()" />
               </div>
@@ -132,7 +128,7 @@
     var point=map.getCenter();
     var zoom=map.getZoom();
     $.ajax({
-      url:'http://localhost:8881/traffic/loadData',
+      url:'http://localhost:8881/traffic/maintenanceData',
       type:'post',
       data:{lat:point.lng,lng:point.lat,zoom:zoom},
       async : true,
@@ -140,12 +136,13 @@
         alert('error');
       }, 
       success:function(datas){
+        map.clearOverlays(); 
         drawLines(datas);
       }
     });
   };
 
-  function drawLines(datas)
+ function drawLines(datas)
   {
     for(var i=0;i<datas.length;i++)
     {
@@ -161,7 +158,7 @@
       var polyline =new BMap.Polyline(mapPoints, {
        enableEditing: false,//是否启用线编辑，默认为false
        enableClicking: true,//是否响应点击事件，默认为true
-       strokeWeight:'3',//折线的宽度，以像素为单位
+       strokeWeight:'4',//折线的宽度，以像素为单位
        strokeOpacity: 0.8,//折线的透明度，取值范围0 - 1
        strokeColor:"#18a45b" //折线颜色
      });
@@ -173,12 +170,11 @@
   function loadDetail(data)
   {
     //console.log(detail);
-    document.getElementById("name").innerText=data.name;
-    document.getElementById("techLevel").innerText=data.techLevel;
-    document.getElementById("lane").innerText=data.lane;
-    document.getElementById("pavementType").innerText=data.pavementType;
-    document.getElementById("pavementWidth").innerText=data.pavementWidth;
-    document.getElementById("subgradeWidth").innerText=data.subgradeWidth;
+    document.getElementById("situation").innerText=data.situation;
+    document.getElementById("disease").innerText=data.disease;
+    document.getElementById("plantVariety").innerText=data.plantVariety;
+    document.getElementById("afforestedArea").innerText=data.afforestedArea;
+    document.getElementById("loadName").innerText=data.loadName;
     var ui=document.getElementById("detail");
     var map=document.getElementById("allmap");
     

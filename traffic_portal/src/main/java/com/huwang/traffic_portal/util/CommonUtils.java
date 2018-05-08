@@ -10,6 +10,7 @@ public class CommonUtils {
     private static double screenSize=50;//默认屏幕尺寸为50cm
     private static double atUnit=100000;//默认单位经纬度间距(m)
     public static String LOADTYPE="LOAD";
+    public static String MAINTENANCETYPE="MAINTENANCE";
 
 
     static{

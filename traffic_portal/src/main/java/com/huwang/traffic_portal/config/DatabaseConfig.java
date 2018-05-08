@@ -67,7 +67,7 @@ public class DatabaseConfig {
 	@Value("${traffic.portal.database.connections.minEvictableIdleTimeMillis:18000000}")
 	protected long minEvictableIdleTimeMillis;
 
-	@Value("${traffic.portal.database.connections.timeBetweenEvictionRunsMillis:1800000}")
+	@Value("${traffic.portal.database.connections.timeBetweenEvictionRunsMillis:18000000}")
 	protected long timeBetweenEvictionRunsMillis;
 
 	@Value("${traffic.portal.database.connections.numTestsPerEvictionRun:3}")

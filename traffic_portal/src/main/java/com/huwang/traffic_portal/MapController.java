@@ -1,10 +1,8 @@
 package com.huwang.traffic_portal;
 
 
-import com.huwang.traffic_portal.entity.LoadEntity;
-import com.huwang.traffic_portal.entity.StructureEntity;
-import com.huwang.traffic_portal.service.LoadService;
-import com.huwang.traffic_portal.service.StructureService;
+import com.huwang.traffic_portal.entity.*;
+import com.huwang.traffic_portal.service.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +21,12 @@ public class MapController {
     private LoadService loadService;
     @Autowired
     private StructureService structureService;
+    @Autowired
+    private FacilitiesService facilitiesService;
+    @Autowired
+    private MaintenanceService maintenanceService;
+    @Autowired
+    private AgencyService agencyService;
 
     @RequestMapping("/map")
     public String Map() {
@@ -47,9 +51,45 @@ public class MapController {
                                                @RequestParam(value = "zoom", required = false) Integer zoom)
     {
         log.info("[GET Structure Data]Start get lat=[{}],lng =[{}],zoom=[{}].", lat, lng, zoom);
-        List<StructureEntity> structures = structureService.getStructures(11,11, 14);
+        List<StructureEntity> structures = structureService.getStructures(lat,lng, zoom);
         log.info("[Response Structure Data]Start return structures size=[{}].", structures.size());
         return structures;
+    }
+
+    @RequestMapping("/facilitiesData")
+    @ResponseBody
+    public List<FacilitiesEntity> getFacilities(@RequestParam(value = "lat", required = false) Double lat,
+                                              @RequestParam(value = "lng", required = false) Double lng,
+                                              @RequestParam(value = "zoom", required = false) Integer zoom)
+    {
+        log.info("[GET Facilities Data]Start get lat=[{}],lng =[{}],zoom=[{}].", lat, lng, zoom);
+        List<FacilitiesEntity> facilities = facilitiesService.getFacilities(lat,lng, zoom);
+        log.info("[Response Facilities Data]Start return facilities size=[{}].", facilities.size());
+        return facilities;
+    }
+
+    @RequestMapping("/maintenanceData")
+    @ResponseBody
+    public List<MaintenanceEntity> getMaintenance(@RequestParam(value = "lat", required = false) Double lat,
+                                                  @RequestParam(value = "lng", required = false) Double lng,
+                                                  @RequestParam(value = "zoom", required = false) Integer zoom)
+    {
+        log.info("[GET Maintenances Data]Start get lat=[{}],lng =[{}],zoom=[{}].", lat, lng, zoom);
+        List<MaintenanceEntity> maintenances = maintenanceService.getMaintenance(lat,lng, zoom);
+        log.info("[Response Maintenances Data]Start return maintenances size=[{}].", maintenances.size());
+        return maintenances;
+    }
+
+    @RequestMapping("/agencyData")
+    @ResponseBody
+    public List<AgencyEntity> getAgency(@RequestParam(value = "lat", required = false) Double lat,
+                                             @RequestParam(value = "lng", required = false) Double lng,
+                                             @RequestParam(value = "zoom", required = false) Integer zoom)
+    {
+        log.info("[GET Agency Data]Start get lat=[{}],lng =[{}],zoom=[{}].", lat, lng, zoom);
+        List<AgencyEntity> agencys = agencyService.getAgency(lat,lng, zoom);
+        log.info("[Response Agency Data]Start return agencys size=[{}].", agencys.size());
+        return agencys;
     }
 
 }

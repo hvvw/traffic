@@ -80,30 +80,14 @@
             <main class="app-content">
               <div id="allmap"></div>
               <div id="detail" class="bootstrap-frm">
-                <h1>路线数据详情</h1>
+                <h1>构筑物数据详情</h1>
                 <label>
-                  <span>道路名:</span>
+                  <span>名称:</span>
                   <p id="name"></p>
                 </label>
                 <label>
-                  <span>道路技术等级:</span>
-                  <p id="techLevel"></p>
-                </label>
-                <label>
-                  <span>车道数:</span>
-                  <p id="lane"></p>
-                </label>
-                <label>
-                  <span>路面面层类型:</span>
-                  <p id="pavementType"></p>
-                </label>
-                <label>
-                  <span>路面宽度:</span>
-                  <p id="pavementWidth"></p>
-                </label>
-                <label>
-                  <span>路基宽度:</span>
-                  <p id="subgradeWidth"></p>
+                  <span>描述:</span>
+                  <p id="desc"></p>
                 </label>
                 <input type="button" class="button" value="关闭" onclick="closeDetail()" />
               </div>
@@ -131,8 +115,8 @@
   function getData(){
     var point=map.getCenter();
     var zoom=map.getZoom();
-    $.ajax({
-      url:'http://localhost:8881/traffic/loadData',
+    $.ajax({ 
+      url:'http://localhost:8881/traffic/structureData',
       type:'post',
       data:{lat:point.lng,lng:point.lat,zoom:zoom},
       async : true,
@@ -140,33 +124,22 @@
         alert('error');
       }, 
       success:function(datas){
-        drawLines(datas);
+        map.clearOverlays(); 
+        drawPoints(datas);
       }
     });
   };
 
-  function drawLines(datas)
+  function drawPoints(datas)
   {
     for(var i=0;i<datas.length;i++)
     {
       var data=datas[i];
-      var points=data.points;
-      var mapPoints=new Array();
-      var point=map.getCenter();
-      for(var j=0;j<points.length;j++)
-      {
-        mapPoints[j]=new BMap.Point(point.lng+0.1*j,point.lat+0.1*j);
-        //mapPoints[j]=new BMap.Point(points[j].lng,points[j].lat);
-      }
-      var polyline =new BMap.Polyline(mapPoints, {
-       enableEditing: false,//是否启用线编辑，默认为false
-       enableClicking: true,//是否响应点击事件，默认为true
-       strokeWeight:'3',//折线的宽度，以像素为单位
-       strokeOpacity: 0.8,//折线的透明度，取值范围0 - 1
-       strokeColor:"#18a45b" //折线颜色
-     });
-      polyline.addEventListener("click", function(){loadDetail(data)});  //添加点击事件
-      map.addOverlay(polyline);          //增加折线
+      var point = new BMap.Point(data.lat,data.lng);
+      var marker = new BMap.Marker(point);// 创建标注
+      marker.disableDragging();           // 不可拖拽
+      marker.addEventListener("click", function(){loadDetail(data)});  //添加点击事件
+      map.addOverlay(marker);             // 将标注添加到地图中
     }
   };
 
@@ -174,11 +147,8 @@
   {
     //console.log(detail);
     document.getElementById("name").innerText=data.name;
-    document.getElementById("techLevel").innerText=data.techLevel;
-    document.getElementById("lane").innerText=data.lane;
-    document.getElementById("pavementType").innerText=data.pavementType;
-    document.getElementById("pavementWidth").innerText=data.pavementWidth;
-    document.getElementById("subgradeWidth").innerText=data.subgradeWidth;
+    document.getElementById("desc").innerText=data.desc;
+    document.getElementById("createDate").innerText=timestampToTime(data.createDate);
     var ui=document.getElementById("detail");
     var map=document.getElementById("allmap");
     
@@ -197,7 +167,15 @@
     ui.style.display="none";
     display=true;
     
-  }
+  };
+
+  function timestampToTime(timestamp) {
+        var date = new Date(timestamp);
+        var Y = date.getFullYear() + '-';
+        var M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+        var D = date.getDate() + ' ';
+        return Y+M+D;
+    };
 
 </script>
 </html>

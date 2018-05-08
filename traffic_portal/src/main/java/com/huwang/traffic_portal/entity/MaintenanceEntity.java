@@ -1,11 +1,9 @@
 package com.huwang.traffic_portal.entity;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name="t_maintenance")
@@ -15,12 +13,23 @@ public class MaintenanceEntity implements Serializable {
     private double centerPointLat;
     private double centerPointLng;
     private int loadId;
+    private String  loadName;
     private String situation;
     private String disease;
     private String plantVariety;
     private double afforestedArea;
     private boolean display;
+    private List<Point> points;
 
+    public void setPoints(List<Point> points) {
+        this.points = points;
+    }
+
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,targetEntity = Point.class)
+    @JoinColumn(name = "id")
+    public List<Point> getPoints() {
+        return points;
+    }
 
     @Id
     @Column(name="id")
@@ -57,6 +66,15 @@ public class MaintenanceEntity implements Serializable {
 
     public void setLoadId(int loadId) {
         this.loadId = loadId;
+    }
+
+    @Column(name="load_name")
+    public String getLoadName() {
+        return loadName;
+    }
+
+    public void setLoadName(String loadName) {
+        this.loadName = loadName;
     }
 
     @Column(name="situation")
