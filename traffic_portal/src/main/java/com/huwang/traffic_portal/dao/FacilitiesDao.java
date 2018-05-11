@@ -38,4 +38,20 @@ public class FacilitiesDao extends BaseDao {
         }
         return Collections.EMPTY_LIST;
     }
+
+    @Transactional
+    public List<FacilitiesEntity> searchFacilities(Double lat, Double lng, Integer unit,String str)
+    {
+        if (lat!=null&&lng!=null&&unit!=null) {
+            String hql="from FacilitiesEntity where lat between "+(lat-CommonUtils.ZoomTransform(unit))+" and "+(lat+CommonUtils.ZoomTransform(unit))
+                    +" and lng between "+(lng-CommonUtils.ZoomTransform(unit))+" and "+(lng+CommonUtils.ZoomTransform(unit))
+                    +" and display = "+true
+                    +" and name like :names";
+            Query query=currentSession().createQuery(hql);
+            query.setString("names",str);
+            List<FacilitiesEntity> list = query.list();
+            return list == null ? Collections.EMPTY_LIST : list;
+        }
+        return Collections.EMPTY_LIST;
+    }
 }

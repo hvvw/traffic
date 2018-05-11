@@ -10,9 +10,9 @@
   <link rel="stylesheet" type="text/css" href="css/my.css"/>
   <!-- Font-icon css-->
   <link rel="stylesheet" type="text/css"
-  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
   <script type="text/javascript"
-  src="http://api.map.baidu.com/api?v=2.0&ak=diu4cXrwh6QzGNGkllGN9TUQZYry8bDG"></script>
+          src="http://api.map.baidu.com/api?v=2.0&ak=diu4cXrwh6QzGNGkllGN9TUQZYry8bDG"></script>
   <!-- Essential javascripts for application to work-->
   <script src="js/jquery-3.2.1.min.js"></script>
   <script src="js/popper.min.js"></script>
@@ -35,74 +35,74 @@
  </script>
 </head>
 <body class="app sidebar-mini rtl">
-  <!-- Navbar-->
-  <header class="app-header"><a class="app-header__logo" href="index.html">Traffic</a>
-    <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar"
-    aria-label="Hide Sidebar"></a>
-    <!-- Navbar Right Menu-->
-    <ul class="app-nav">
-      <li class="app-search">
-        <input class="app-search__input" type="search" placeholder="Search">
-        <button class="app-search__button"><i class="fa fa-search"></i></button>
-      </li>
-      <!-- User Menu-->
-      <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i
-        class="fa fa-user fa-lg"></i></a>
-        <ul class="dropdown-menu settings-menu dropdown-menu-right">
-          <li><a class="dropdown-item" href="page-user.html"><i class="fa fa-cog fa-lg"></i> Settings</a></li>
-          <li><a class="dropdown-item" href="page-user.html"><i class="fa fa-user fa-lg"></i> Profile</a></li>
-          <li><a class="dropdown-item" href="page-login.html"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
-        </ul>
-      </li>
-    </ul>
-  </header>
-  <!-- Sidebar menu-->
-  <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
-  <aside class="app-sidebar">
-    <div class="app-sidebar__user">
-      <div>
-        <p class="app-sidebar__user-name">HuWang</p>
-      </div>
+<!-- Navbar-->
+<header class="app-header"><a class="app-header__logo" href="index.html">Traffic</a>
+  <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar"
+                                  aria-label="Hide Sidebar"></a>
+  <!-- Navbar Right Menu-->
+  <ul class="app-nav">
+    <li class="app-search">
+      <input class="app-search__input" id="searchData" type="search" placeholder="Search">
+      <button class="app-search__button" onclick="search()"><i class="fa fa-search"></i></button>
+    </li>
+    <!-- User Menu-->
+    <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i
+            class="fa fa-user fa-lg"></i></a>
+      <ul class="dropdown-menu settings-menu dropdown-menu-right">
+        <li><a class="dropdown-item" href="page-user.html"><i class="fa fa-cog fa-lg"></i> Settings</a></li>
+        <li><a class="dropdown-item" href="page-user.html"><i class="fa fa-user fa-lg"></i> Profile</a></li>
+        <li><a class="dropdown-item" href="page-login.html"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
+      </ul>
+    </li>
+  </ul>
+</header>
+<!-- Sidebar menu-->
+<div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+<aside class="app-sidebar">
+  <div class="app-sidebar__user">
+    <div>
+      <p class="app-sidebar__user-name">HuWang</p>
     </div>
-    <ul class="app-menu">
-      <li><a class="app-menu__item active" href="index.html"><i class="app-menu__icon fa fa-th-list"></i><span
-        class="app-menu__label">路线查询</span></a></li>
-        <li><a class="app-menu__item" href="structure.html"><i class="app-menu__icon fa fa-laptop"></i><span
-          class="app-menu__label">构筑物查询</span></a></li>
-          <li><a class="app-menu__item" href="facilities.html"><i class="app-menu__icon fa fa-pie-chart"></i><span
+  </div>
+  <ul class="app-menu">
+    <li><a class="app-menu__item active" href="index.html"><i class="app-menu__icon fa fa-th-list"></i><span
+            class="app-menu__label">路线查询</span></a></li>
+    <li><a class="app-menu__item" href="structure.html"><i class="app-menu__icon fa fa-laptop"></i><span
+            class="app-menu__label">构筑物查询</span></a></li>
+    <li><a class="app-menu__item" href="facilities.html"><i class="app-menu__icon fa fa-pie-chart"></i><span
             class="app-menu__label">附属设施查询</span></a></li>
-            <li><a class="app-menu__item" href="maintenance.html"><i class="app-menu__icon fa fa-edit"></i><span
-              class="app-menu__label">养护、绿化数据查询</span></a></li>
-              <li><a class="app-menu__item" href="agency.html"><i class="app-menu__icon fa fa-th-list"></i><span
-                class="app-menu__label">养护机构数据查询</span></a></li>
-              </ul>
-            </aside>
-            <main class="app-content">
-              <div id="allmap"></div>
-              <div id="detail" class="bootstrap-frm">
-                <h1>构筑物数据详情</h1>
-                <label>
-                  <span>名称:</span>
-                  <p id="name"></p>
-                </label>
-                <label>
-                  <span>类型:</span>
-                  <p id="type"></p>
-                </label>
-                <label>
-                  <span>建造时间:</span>
-                  <p id="createDate"></p>
-                </label>
-                <label>
-                  <span>描述:</span>
-                  <p id="desc"></p>
-                </label>
-                <input type="button" class="button" value="关闭" onclick="closeDetail()" />
-              </div>
-            </main>
-          </body>
+    <li><a class="app-menu__item" href="maintenance.html"><i class="app-menu__icon fa fa-edit"></i><span
+            class="app-menu__label">养护、绿化数据查询</span></a></li>
+    <li><a class="app-menu__item" href="agency.html"><i class="app-menu__icon fa fa-th-list"></i><span
+            class="app-menu__label">养护机构数据查询</span></a></li>
+  </ul>
+</aside>
+<main class="app-content">
+  <div id="allmap"></div>
+  <div id="detail" class="bootstrap-frm">
+    <h1>构筑物数据详情</h1>
+    <label>
+      <span>名称:</span>
+      <p id="name"></p>
+    </label>
+    <label>
+      <span>类型:</span>
+      <p id="type"></p>
+    </label>
+    <label>
+      <span>建造时间:</span>
+      <p id="createDate"></p>
+    </label>
+    <label>
+      <span>描述:</span>
+      <p id="desc"></p>
+    </label>
+    <input type="button" class="button" value="关闭" onclick="closeDetail()" />
+  </div>
+</main>
+</body>
 
-          <script type="text/javascript">
+<script type="text/javascript">
   //加载百度地图API功能
   var map = new BMap.Map("allmap",{enableMapClick:false});
   var x = 115.85;
@@ -110,45 +110,102 @@
   var ncPoint = new BMap.Point(x,y);
   map.centerAndZoom(ncPoint, 15);
 
+  var point=map.getCenter();
+  var zoom=map.getZoom();
+  var zooms=new Array();
+  zooms[0]=2000000;
+  zooms[1]=1000000;
+  zooms[2]=500000;
+  zooms[3]=200000;
+  zooms[4]=100000;
+  zooms[5]=50000;
+  zooms[6]=25000;
+  zooms[7]=20000;
+  zooms[8]=10000;
+  zooms[9]=5000;
+  zooms[10]=2000;
+  zooms[11]=1000;
+  zooms[12]=500;
+  zooms[13]=200;
+  zooms[14]=100;
+  zooms[15]=50;
+  zooms[16]=20;
+
   //添加控件
   var top_right_navigation = new BMap.NavigationControl({anchor: BMAP_ANCHOR_TOP_RIGHT, type: BMAP_NAVIGATION_CONTROL_SMALL}); //右上角
   var top_left_control = new BMap.ScaleControl({anchor: BMAP_ANCHOR_TOP_LEFT});// 左上角，添加比例尺
   map.addControl(top_right_navigation);
   map.addControl(top_left_control);
 
-  map.addEventListener("dragend",function(){getData()});
-  map.addEventListener("zoomend",function(){getData()});
-  map.addEventListener("tilesloaded",function(){getData()});
+  map.addEventListener("dragend",function(){judgeIfRefresh()});
+  map.addEventListener("zoomend",function(){judgeIfRefresh()});
+  getData();
+
+  function judgeIfRefresh()
+  {
+    var nowPoint=map.getCenter();
+    var nowZoom=map.getZoom();
+    if(nowPoint.lat-point.lat>zooms[nowZoom-3]/20000||nowPoint.lat-point.lat<-zooms[nowZoom-3]/20000
+      ||nowPoint.lng-point.lng>zooms[nowZoom-3]/20000||nowPoint.lng-point.lng<-zooms[nowZoom-3]/20000)
+    {
+      point=nowPoint;
+      zoom=nowZoom;
+      getData();
+    }
+  };
 
   function getData(){
-    var point=map.getCenter();
-    var zoom=map.getZoom();
     $.ajax({
       url:'http://localhost:8881/traffic/structureData',
       type:'post',
-      data:{lat:point.lng,lng:point.lat,zoom:zoom},
+      data:{lat:point.lat,lng:point.lng,zoom:zoom},
       async : true,
       error:function(){
         alert('error');
-      }, 
+      },
       success:function(datas){
-        map.clearOverlays(); 
-        drawPoints(datas);
+        console.log(datas);
+        map.clearOverlays();
+        var loads=datas.loads;
+        var structures=datas.structures;
+        for(var i=0;i<loads.length;i++)
+        {
+          drawLines(loads[i]);
+        }
+        for(var j=0;j<structures.length;j++)
+        {
+          drawPoints(structures[j]);
+        }
       }
     });
   };
 
-  function drawPoints(datas)
+  function drawPoints(data)
   {
-    for(var i=0;i<datas.length;i++)
-    {
-      var data=datas[i];
-      var point = new BMap.Point(data.lat,data.lng);
+      var point = new BMap.Point(data.lng,data.lat);
       var marker = new BMap.Marker(point);// 创建标注
       marker.disableDragging();           // 不可拖拽
       marker.addEventListener("click", function(){loadDetail(data)});  //添加点击事件
       map.addOverlay(marker);             // 将标注添加到地图中
-    }
+  };
+
+  function drawLines(data)
+  {
+      var points=data.points;
+      var mapPoints=new Array();
+      var point=map.getCenter();
+      for(var j=0;j<points.length;j++)
+      {
+        mapPoints[j]=new BMap.Point(points[j].lng,points[j].lat);
+      }
+      polyline =new BMap.Polyline(mapPoints, {
+       enableEditing: false,//是否启用线编辑，默认为false
+       enableClicking: true,//是否响应点击事件，默认为true
+       strokeWeight:'3',//折线的宽度，以像素为单位
+       strokeOpacity: 0.8,//折线的透明度，取值范围0 - 1
+       strokeColor:"#8e301d" //折线颜色
+     });
+      map.addOverlay(polyline);          //增加折线
   };
 
   function loadDetail(data)
@@ -160,22 +217,22 @@
     document.getElementById("createDate").innerText=timestampToTime(data.createDate);
     var ui=document.getElementById("detail");
     var map=document.getElementById("allmap");
-    
+
     map.style.width="80%";
     ui.style.display="block";
     display=false;
-    
+
   };
 
   function closeDetail()
   {
     var ui=document.getElementById("detail");
     var map=document.getElementById("allmap");
-    
+
     map.style.width="100%";
     ui.style.display="none";
     display=true;
-    
+
   };
 
   function timestampToTime(timestamp) {
@@ -184,7 +241,35 @@
         var M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
         var D = date.getDate() + ' ';
         return Y+M+D;
-    };
+  };
+
+  function search()
+  {
+      var searchData=document.getElementById("searchData").value;
+      $.ajax({
+      url:'http://localhost:8881/traffic/searchStructure',
+      type:'post',
+      data:{lat:point.lat,lng:point.lng,zoom:zoom,searchData:searchData},
+      async : true,
+      error:function(){
+        alert('error');
+      },
+      success:function(datas){
+        console.log(datas);
+        map.clearOverlays();
+        var loads=datas.loads;
+        var structures=datas.structures;
+        for(var i=0;i<loads.length;i++)
+        {
+          drawLines(loads[i]);
+        }
+        for(var j=0;j<structures.length;j++)
+        {
+          drawPoints(structures[j]);
+        }
+      }
+    });
+  }
 
 </script>
 </html>

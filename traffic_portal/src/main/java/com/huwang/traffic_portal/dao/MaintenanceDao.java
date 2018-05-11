@@ -37,4 +37,20 @@ public class MaintenanceDao extends BaseDao {
         }
         return Collections.EMPTY_LIST;
     }
+
+    @Transactional
+    public List<MaintenanceEntity> searchMaintenance(Double lat, Double lng, Integer unit,String str)
+    {
+        if (lat!=null&&lng!=null&&unit!=null) {
+            String hql="from MaintenanceEntity where centerPointLat between "+(lat-CommonUtils.ZoomTransform(unit))+" and "+(lat+CommonUtils.ZoomTransform(unit))
+                    +" and centerPointLng between "+(lng-CommonUtils.ZoomTransform(unit))+" and "+(lng+CommonUtils.ZoomTransform(unit))
+                    +" and display = "+true
+                    +" and plantVariety like :str";
+            Query query=currentSession().createQuery(hql);
+            query.setString("str",str);
+            List<MaintenanceEntity> list = query.list();
+            return list == null ? Collections.EMPTY_LIST : list;
+        }
+        return Collections.EMPTY_LIST;
+    }
 }

@@ -40,4 +40,31 @@ public class LoadService {
         }
         return loads;
     }
+
+    public List<LoadEntity> searchLoad(double lat,double lng,int unit,String str)
+    {
+        List<LoadEntity> response=dao.searchData(lat,lng,unit,str);
+        List<LoadEntity> loads=new ArrayList<>();
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            String mapJakcson = mapper.writeValueAsString(response);
+            JavaType javaType = mapper.getTypeFactory().constructParametricType(ArrayList.class, LoadEntity.class);
+            loads = mapper.readValue(mapJakcson, javaType);
+        }catch (Exception e){}
+        for (LoadEntity load : loads) {
+            List<Point> points = pointDao.getPoints(load.getId(), CommonUtils.LOADTYPE);
+            load.setPoints(points);
+        }
+        return loads;
+    }
+
+    public void addPoint(double lat,double lng,int pid)
+    {
+        Point point=new Point();
+        point.setLat(lat);
+        point.setLng(lng);
+        point.setParentId(pid);
+        point.setType(CommonUtils.MAINTENANCETYPE);
+        pointDao.saveEntity(point);
+    }
 }

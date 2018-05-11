@@ -41,4 +41,22 @@ public class MaintenanceService {
         }
         return maintenances;
     }
+
+
+    public List<MaintenanceEntity> searchMaintenance(double lat, double lng, int unit,String str)
+    {
+        List<MaintenanceEntity> response=dao.searchMaintenance(lat,lng,unit,str);
+        List<MaintenanceEntity> maintenances=new ArrayList<>();
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            String mapJakcson = mapper.writeValueAsString(response);
+            JavaType javaType = mapper.getTypeFactory().constructParametricType(ArrayList.class, MaintenanceEntity.class);
+            maintenances = mapper.readValue(mapJakcson, javaType);
+        }catch (Exception e){}
+        for (MaintenanceEntity maintenance : maintenances) {
+            List<Point> points = pointDao.getPoints(maintenance.getId(), CommonUtils.MAINTENANCETYPE);
+            maintenance.setPoints(points);
+        }
+        return maintenances;
+    }
 }

@@ -52,7 +52,7 @@ public class DatabaseConfig {
 	@Value("${traffic.portal.database.connections.initialSize:5}")
 	private int initialSize;
 
-	@Value("${traffic.portal.database.connections.maxActive:5}")
+	@Value("${traffic.portal.database.connections.maxActive:200}")
 	private int maxActive;
 
 	@Value("${traffic.portal.database.connections.minIdle:2}")

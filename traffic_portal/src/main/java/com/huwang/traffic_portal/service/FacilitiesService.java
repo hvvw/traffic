@@ -34,4 +34,17 @@ public class FacilitiesService {
         }catch (Exception e){}
         return facilities;
     }
+
+    public List<FacilitiesEntity> searchFacilities(double lat, double lng, int unit,String str)
+    {
+        List<FacilitiesEntity> response=dao.searchFacilities(lat,lng,unit,str);
+        List<FacilitiesEntity> facilities=new ArrayList<>();
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            String mapJakcson = mapper.writeValueAsString(response);
+            JavaType javaType = mapper.getTypeFactory().constructParametricType(ArrayList.class, FacilitiesEntity.class);
+            facilities = mapper.readValue(mapJakcson, javaType);
+        }catch (Exception e){}
+        return facilities;
+    }
 }

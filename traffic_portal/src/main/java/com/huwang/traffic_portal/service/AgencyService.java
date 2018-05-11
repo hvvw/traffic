@@ -34,4 +34,17 @@ public class AgencyService {
         }catch (Exception e){}
         return agencys;
     }
+
+    public List<AgencyEntity> searchAgency(double lat, double lng, int unit,String str)
+    {
+        List<AgencyEntity> response=dao.searchAgency(lat,lng,unit,str);
+        List<AgencyEntity> agencys=new ArrayList<>();
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            String mapJakcson = mapper.writeValueAsString(response);
+            JavaType javaType = mapper.getTypeFactory().constructParametricType(ArrayList.class, AgencyEntity.class);
+            agencys = mapper.readValue(mapJakcson, javaType);
+        }catch (Exception e){}
+        return agencys;
+    }
 }

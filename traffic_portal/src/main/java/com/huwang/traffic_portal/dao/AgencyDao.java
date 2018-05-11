@@ -36,4 +36,19 @@ public class AgencyDao extends BaseDao {
         }
         return Collections.EMPTY_LIST;
     }
+
+    @Transactional
+    public List<AgencyEntity> searchAgency(Double lat, Double lng, Integer unit,String str)
+    {
+        if (lat!=null&&lng!=null&&unit!=null) {
+            String hql="from AgencyEntity where lat between "+(lat-CommonUtils.ZoomTransform(unit))+" and "+(lat+CommonUtils.ZoomTransform(unit))
+                    +" and lng between "+(lng-CommonUtils.ZoomTransform(unit))+" and "+(lng+CommonUtils.ZoomTransform(unit))
+                    +" and name like :str";
+            Query query=currentSession().createQuery(hql);
+            query.setString("str",str);
+            List<AgencyEntity> list = query.list();
+            return list == null ? Collections.EMPTY_LIST : list;
+        }
+        return Collections.EMPTY_LIST;
+    }
 }

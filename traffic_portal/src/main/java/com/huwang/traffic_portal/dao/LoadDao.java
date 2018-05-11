@@ -48,4 +48,21 @@ public class LoadDao extends BaseDao {
         }
         return Collections.EMPTY_LIST;
     }
+
+    @Transactional
+    public List<LoadEntity> searchData(Double lat,Double lng,Integer unit,String str)
+    {
+        if (lat!=null&&lng!=null&&unit!=null) {
+            String hql="from LoadEntity where pointLat between "+(lat-CommonUtils.ZoomTransform(unit))+" and "+(lat+CommonUtils.ZoomTransform(unit))
+                    +" and pointLng between "+(lng-CommonUtils.ZoomTransform(unit))+" and "+(lng+CommonUtils.ZoomTransform(unit))
+                    +" and showLevel <= " +unit
+                    +" and display = "+true
+                    +" and name like :str";
+            Query query=currentSession().createQuery(hql);
+            query.setString("str", "%"+str+"%");
+            List<LoadEntity> list = query.list();
+            return list == null ? Collections.EMPTY_LIST : list;
+        }
+        return Collections.EMPTY_LIST;
+    }
 }

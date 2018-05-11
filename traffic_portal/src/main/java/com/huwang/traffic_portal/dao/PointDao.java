@@ -1,10 +1,11 @@
 package com.huwang.traffic_portal.dao;
 
 import com.huwang.traffic_portal.entity.Point;
+import com.huwang.traffic_portal.util.CommonUtils;
 import org.hibernate.Criteria;
-import org.hibernate.SessionFactory;
+import org.hibernate.Query;
+import org.hibernate.SQLQuery;
 import org.hibernate.criterion.Restrictions;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,6 +25,17 @@ public class PointDao extends BaseDao {
     @Transactional
     public void updateEntity(final Object entity) {
         super.updateEntity(entity);
+    }
+
+    @Transactional
+    public void saveEntity(Point entity) {
+        String sql = "insert into t_point (lng,lat,type,p_id)  values(?,?,?,?)";
+        Query query= currentSession().createSQLQuery(sql);
+        query.setDouble(0, entity.getLng());
+        query.setDouble(1, entity.getLat());
+        query.setString(2,entity.getType());
+        query.setInteger(3,entity.getParentId());
+        query.executeUpdate();
     }
 
     @Transactional
