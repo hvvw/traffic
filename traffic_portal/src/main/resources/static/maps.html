@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Hello, World</title>
+    <style type="text/css">
+html{height:100%}
+body{height:100%;margin:0px;padding:0px}
+#container{height:100%}
+
+    </style>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&amp;ak=diu4cXrwh6QzGNGkllGN9TUQZYry8bDG">
+    </script>
+</head>
+
+<body>
+<div id="container"></div>
+<script type="text/javascript">
+var map = new BMap.Map("container");
+var point = new BMap.Point(116.404, 39.915);
+map.centerAndZoom(point, 15);
+map.addControl(new BMap.NavigationControl(BMAP_ANCHOR_BOTTOM_RIGHT));
+map.addControl(new BMap.ScaleControl(BMAP_ANCHOR_BOTTOM_LEFT));
+map.addControl(new BMap.OverviewMapControl(BMAP_ANCHOR_TOP_RIGHT));
+map.addControl(new BMap.MapTypeControl(BMAP_ANCHOR_TOP_LEFT));
+
+
+ZoomControl.prototype.initialize = function(map){
+    // 创建一个DOM元素
+    var div = document.createElement("div");
+    // 添加文字说明
+    div.appendChild(document.createTextNode("放大2级"));
+    // 设置样式
+    div.style.cursor = "pointer";
+    div.style.border = "1px solid gray";
+    div.style.backgroundColor = "white";
+    // 绑定事件，点击一次放大两级
+    div.onclick = function(e){
+        map.zoomTo(map.getZoom() + 2);
+    }
+    // 添加DOM元素到地图中
+    map.getContainer().appendChild(div);
+    // 将DOM元素返回
+    return div;
+ }
+ // 创建控件实例
+var myZoomCtrl = new ZoomControl();
+// 添加到地图当中
+map.addControl(myZoomCtrl);
+</script>
+</body>
+</html>

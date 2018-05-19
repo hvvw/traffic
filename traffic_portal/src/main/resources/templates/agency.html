@@ -65,9 +65,9 @@
     </div>
   </div>
   <ul class="app-menu">
-    <li><a class="app-menu__item" href="index.html"><i class="app-menu__icon fa fa-th-list"></i><span
+    <li><a class="app-menu__item active" href="index.html"><i class="app-menu__icon fa fa-th-list"></i><span
             class="app-menu__label">路线查询</span></a></li>
-    <li><a class="app-menu__item active" href="structure.html"><i class="app-menu__icon fa fa-laptop"></i><span
+    <li><a class="app-menu__item" href="structure.html"><i class="app-menu__icon fa fa-laptop"></i><span
             class="app-menu__label">构筑物查询</span></a></li>
     <li><a class="app-menu__item" href="facilities.html"><i class="app-menu__icon fa fa-pie-chart"></i><span
             class="app-menu__label">附属设施查询</span></a></li>
@@ -80,22 +80,18 @@
 <main class="app-content">
   <div id="allmap"></div>
   <div id="detail" class="bootstrap-frm">
-    <h1>构筑物数据详情</h1>
+    <h1>养护机构详情</h1>
     <label>
       <span>名称:</span>
       <p id="name"></p>
     </label>
     <label>
-      <span>类型:</span>
-      <p id="type"></p>
-    </label>
-    <label>
-      <span>建造时间:</span>
-      <p id="createDate"></p>
-    </label>
-    <label>
       <span>描述:</span>
       <p id="desc"></p>
+    </label>
+    <label>
+      <span>建设时间:</span>
+      <p id="createDate"></p>
     </label>
     <input type="button" class="button" value="关闭" onclick="closeDetail()" />
   </div>
@@ -103,20 +99,6 @@
 </body>
 
 <script type="text/javascript">
-
-  var token=getCookie("token");
-
-  function getCookie(cname)
-  {
-    var name = cname + "=";
-    var ca = document.cookie.split(';');
-    for(var i=0; i<ca.length; i++)
-    {
-      var c = ca[i].trim();
-      if (c.indexOf(name)==0) return c.substring(name.length,c.length);
-    }
-    return "";
-  };
   //加载百度地图API功能
   var map = new BMap.Map("allmap",{enableMapClick:false});
   var x = 115.85;
@@ -153,17 +135,7 @@
 
   map.addEventListener("dragend",function(){judgeIfRefresh()});
   map.addEventListener("zoomend",function(){judgeIfRefresh()});
-  init();
   getData();
-
-  function init()
-  {
-      if(token==null||token=="")
-      {
-          alert("请登陆后进入此页面");
-          window.location.href="login.html";
-      }
-  };
 
   function judgeIfRefresh()
   {
@@ -180,32 +152,19 @@
 
   function getData(){
     $.ajax({
-      url:'http://localhost:8881/traffic/structureData',
+      url:'http://localhost:8881/traffic/agencyData',
       type:'post',
-      data:{lat:point.lat,lng:point.lng,zoom:zoom,token:token},
+      data:{lat:point.lat,lng:point.lng,zoom:zoom},
       async : true,
       error:function(){
         alert('error');
       },
-      success:function(response){
-        if(response.flag==true)
+      success:function(datas){
+        console.log(datas);
+        map.clearOverlays();
+        for(var j=0;j<datas.length;j++)
         {
-          var datas=response.object;
-          console.log(datas);
-          map.clearOverlays();
-          var loads=datas.loads;
-          var structures=datas.structures;
-          for(var i=0;i<loads.length;i++)
-          {
-            drawLines(loads[i]);
-          }
-          for(var j=0;j<structures.length;j++)
-          {
-            drawPoints(structures[j]);
-          }
-        }else{
-          alert("token过期，请重新登陆");
-          window.location.href="login.html";
+          drawPoints(datas[j]);
         }
       }
     });
@@ -220,31 +179,11 @@
       map.addOverlay(marker);             // 将标注添加到地图中
   };
 
-  function drawLines(data)
-  {
-      var points=data.points;
-      var mapPoints=new Array();
-      var point=map.getCenter();
-      for(var j=0;j<points.length;j++)
-      {
-        mapPoints[j]=new BMap.Point(points[j].lng,points[j].lat);
-      }
-      polyline =new BMap.Polyline(mapPoints, {
-       enableEditing: false,//是否启用线编辑，默认为false
-       enableClicking: true,//是否响应点击事件，默认为true
-       strokeWeight:'3',//折线的宽度，以像素为单位
-       strokeOpacity: 0.8,//折线的透明度，取值范围0 - 1
-       strokeColor:"#8e301d" //折线颜色
-     });
-      map.addOverlay(polyline);          //增加折线
-  };
-
   function loadDetail(data)
   {
     //console.log(detail);
     document.getElementById("name").innerText=data.name;
-    document.getElementById("type").innerText=data.type;
-    document.getElementById("desc").innerText=data.desc;
+    document.getElementById("desc").innerText=data.type;
     document.getElementById("createDate").innerText=timestampToTime(data.createDate);
     var ui=document.getElementById("detail");
     var map=document.getElementById("allmap");
@@ -278,32 +217,19 @@
   {
       var searchData=document.getElementById("searchData").value;
       $.ajax({
-      url:'http://localhost:8881/traffic/searchStructure',
+      url:'http://localhost:8881/traffic/searchAgency',
       type:'post',
       data:{lat:point.lat,lng:point.lng,zoom:zoom,searchData:searchData},
       async : true,
       error:function(){
         alert('error');
       },
-      success:function(response){
-        if(response.flag==true)
+      success:function(datas){
+        console.log(datas);
+        map.clearOverlays();
+        for(var j=0;j<datas.length;j++)
         {
-          var datas=response.object;
-          console.log(datas);
-          map.clearOverlays();
-          var loads=datas.loads;
-          var structures=datas.structures;
-          for(var i=0;i<loads.length;i++)
-          {
-            drawLines(loads[i]);
-          }
-          for(var j=0;j<structures.length;j++)
-          {
-            drawPoints(structures[j]);
-          }
-        }else{
-          alert("token过期，请重新登陆");
-          window.location.href="login.html";
+          drawPoints(datas[j]);
         }
       }
     });

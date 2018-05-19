@@ -12,11 +12,11 @@
   <link rel="stylesheet" type="text/css"
         href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
   <script type="text/javascript"
-          src="http://api.map.baidu.com/api?v=2.0&ak=diu4cXrwh6QzGNGkllGN9TUQZYry8bDG"></script>
+          src="http://api.map.baidu.com/api?v=2.0&amp;=diu4cXrwh6QzGNGkllGN9TUQZYry8bDG"></script>
   <!-- Essential javascripts for application to work-->
   <script src="/traffic/static/js/jquery-3.2.1.min.js"></script>
   <script src="/traffic/static/js/popper.min.js"></script>
-  <script src="/traffic/static/js/bootstrap.min.js"></script>
+  <script src="/traffic/static/js/bootstrap.min.js">input</script>
   <script src="/traffic/static/js/main.js"></script>
   <!-- The javascript plugin to display page loading on top-->
   <script src="/traffic/static/js/plugins/pace.min.js"></script>
@@ -42,7 +42,7 @@
   <!-- Navbar Right Menu-->
   <ul class="app-nav">
     <li class="app-search">
-      <input class="app-search__input" id="searchData" type="search" placeholder="Search">
+      <input class="app-search__input" id="searchData" type="search" placeholder="Search"/>
       <button class="app-search__button" onclick="search()"><i class="fa fa-search"></i></button>
     </li>
     <!-- User Menu-->
@@ -65,9 +65,9 @@
     </div>
   </div>
   <ul class="app-menu">
-    <li><a class="app-menu__item" href="index.html"><i class="app-menu__icon fa fa-th-list"></i><span
+    <li><a class="app-menu__item active" href="index.html"><i class="app-menu__icon fa fa-th-list"></i><span
             class="app-menu__label">路线查询</span></a></li>
-    <li><a class="app-menu__item active" href="structure.html"><i class="app-menu__icon fa fa-laptop"></i><span
+    <li><a class="app-menu__item" href="structure.html"><i class="app-menu__icon fa fa-laptop"></i><span
             class="app-menu__label">构筑物查询</span></a></li>
     <li><a class="app-menu__item" href="facilities.html"><i class="app-menu__icon fa fa-pie-chart"></i><span
             class="app-menu__label">附属设施查询</span></a></li>
@@ -80,22 +80,30 @@
 <main class="app-content">
   <div id="allmap"></div>
   <div id="detail" class="bootstrap-frm">
-    <h1>构筑物数据详情</h1>
+    <h1>路线数据详情</h1>
     <label>
-      <span>名称:</span>
+      <span>道路名:</span>
       <p id="name"></p>
     </label>
     <label>
-      <span>类型:</span>
-      <p id="type"></p>
+      <span>道路技术等级:</span>
+      <p id="techLevel"></p>
     </label>
     <label>
-      <span>建造时间:</span>
-      <p id="createDate"></p>
+      <span>车道数:</span>
+      <p id="lane"></p>
     </label>
     <label>
-      <span>描述:</span>
-      <p id="desc"></p>
+      <span>路面面层类型:</span>
+      <p id="pavementType"></p>
+    </label>
+    <label>
+      <span>路面宽度:</span>
+      <p id="pavementWidth"></p>
+    </label>
+    <label>
+      <span>路基宽度:</span>
+      <p id="subgradeWidth"></p>
     </label>
     <input type="button" class="button" value="关闭" onclick="closeDetail()" />
   </div>
@@ -103,20 +111,6 @@
 </body>
 
 <script type="text/javascript">
-
-  var token=getCookie("token");
-
-  function getCookie(cname)
-  {
-    var name = cname + "=";
-    var ca = document.cookie.split(';');
-    for(var i=0; i<ca.length; i++)
-    {
-      var c = ca[i].trim();
-      if (c.indexOf(name)==0) return c.substring(name.length,c.length);
-    }
-    return "";
-  };
   //加载百度地图API功能
   var map = new BMap.Map("allmap",{enableMapClick:false});
   var x = 115.85;
@@ -153,17 +147,7 @@
 
   map.addEventListener("dragend",function(){judgeIfRefresh()});
   map.addEventListener("zoomend",function(){judgeIfRefresh()});
-  init();
   getData();
-
-  function init()
-  {
-      if(token==null||token=="")
-      {
-          alert("请登陆后进入此页面");
-          window.location.href="login.html";
-      }
-  };
 
   function judgeIfRefresh()
   {
@@ -180,44 +164,22 @@
 
   function getData(){
     $.ajax({
-      url:'http://localhost:8881/traffic/structureData',
+      url:'http://localhost:8881/traffic/loadData',
       type:'post',
-      data:{lat:point.lat,lng:point.lng,zoom:zoom,token:token},
+      data:{lat:point.lat,lng:point.lng,zoom:zoom},
       async : true,
       error:function(){
         alert('error');
-      },
-      success:function(response){
-        if(response.flag==true)
+      }, 
+      success:function(datas){
+        console.log(datas);
+        map.clearOverlays();
+        for(var i=0;i<datas.length;i++)
         {
-          var datas=response.object;
-          console.log(datas);
-          map.clearOverlays();
-          var loads=datas.loads;
-          var structures=datas.structures;
-          for(var i=0;i<loads.length;i++)
-          {
-            drawLines(loads[i]);
-          }
-          for(var j=0;j<structures.length;j++)
-          {
-            drawPoints(structures[j]);
-          }
-        }else{
-          alert("token过期，请重新登陆");
-          window.location.href="login.html";
+          drawLines(datas[i]);
         }
       }
     });
-  };
-
-  function drawPoints(data)
-  {
-      var point = new BMap.Point(data.lng,data.lat);
-      var marker = new BMap.Marker(point);// 创建标注
-      marker.disableDragging();           // 不可拖拽
-      marker.addEventListener("click", function(){loadDetail(data)});  //添加点击事件
-      map.addOverlay(marker);             // 将标注添加到地图中
   };
 
   function drawLines(data)
@@ -227,6 +189,7 @@
       var point=map.getCenter();
       for(var j=0;j<points.length;j++)
       {
+        //mapPoints[j]=new BMap.Point(point.lng+0.1*j,point.lat+0.1*j);
         mapPoints[j]=new BMap.Point(points[j].lng,points[j].lat);
       }
       polyline =new BMap.Polyline(mapPoints, {
@@ -236,6 +199,7 @@
        strokeOpacity: 0.8,//折线的透明度，取值范围0 - 1
        strokeColor:"#8e301d" //折线颜色
      });
+      polyline.addEventListener("click", function(){loadDetail(data)});  //添加点击事件
       map.addOverlay(polyline);          //增加折线
   };
 
@@ -243,67 +207,48 @@
   {
     //console.log(detail);
     document.getElementById("name").innerText=data.name;
-    document.getElementById("type").innerText=data.type;
-    document.getElementById("desc").innerText=data.desc;
-    document.getElementById("createDate").innerText=timestampToTime(data.createDate);
+    document.getElementById("techLevel").innerText=data.techLevel;
+    document.getElementById("lane").innerText=data.lane;
+    document.getElementById("pavementType").innerText=data.pavementType;
+    document.getElementById("pavementWidth").innerText=data.pavementWidth;
+    document.getElementById("subgradeWidth").innerText=data.subgradeWidth;
     var ui=document.getElementById("detail");
     var map=document.getElementById("allmap");
-
+    
     map.style.width="80%";
     ui.style.display="block";
     display=false;
-
+    
   };
 
   function closeDetail()
   {
     var ui=document.getElementById("detail");
     var map=document.getElementById("allmap");
-
+    
     map.style.width="100%";
     ui.style.display="none";
     display=true;
-
-  };
-
-  function timestampToTime(timestamp) {
-        var date = new Date(timestamp);
-        var Y = date.getFullYear() + '-';
-        var M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
-        var D = date.getDate() + ' ';
-        return Y+M+D;
+    
   };
 
   function search()
   {
       var searchData=document.getElementById("searchData").value;
       $.ajax({
-      url:'http://localhost:8881/traffic/searchStructure',
+      url:'http://localhost:8881/traffic/searchLoad',
       type:'post',
       data:{lat:point.lat,lng:point.lng,zoom:zoom,searchData:searchData},
       async : true,
       error:function(){
         alert('error');
       },
-      success:function(response){
-        if(response.flag==true)
+      success:function(datas){
+        console.log(datas);
+        map.clearOverlays();
+        for(var i=0;i<datas.length;i++)
         {
-          var datas=response.object;
-          console.log(datas);
-          map.clearOverlays();
-          var loads=datas.loads;
-          var structures=datas.structures;
-          for(var i=0;i<loads.length;i++)
-          {
-            drawLines(loads[i]);
-          }
-          for(var j=0;j<structures.length;j++)
-          {
-            drawPoints(structures[j]);
-          }
-        }else{
-          alert("token过期，请重新登陆");
-          window.location.href="login.html";
+          drawLines(datas[i]);
         }
       }
     });

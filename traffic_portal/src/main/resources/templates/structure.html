@@ -65,9 +65,9 @@
     </div>
   </div>
   <ul class="app-menu">
-    <li><a class="app-menu__item" href="index.html"><i class="app-menu__icon fa fa-th-list"></i><span
+    <li><a class="app-menu__item active" href="index.html"><i class="app-menu__icon fa fa-th-list"></i><span
             class="app-menu__label">路线查询</span></a></li>
-    <li><a class="app-menu__item active" href="structure.html"><i class="app-menu__icon fa fa-laptop"></i><span
+    <li><a class="app-menu__item" href="structure.html"><i class="app-menu__icon fa fa-laptop"></i><span
             class="app-menu__label">构筑物查询</span></a></li>
     <li><a class="app-menu__item" href="facilities.html"><i class="app-menu__icon fa fa-pie-chart"></i><span
             class="app-menu__label">附属设施查询</span></a></li>
@@ -103,20 +103,6 @@
 </body>
 
 <script type="text/javascript">
-
-  var token=getCookie("token");
-
-  function getCookie(cname)
-  {
-    var name = cname + "=";
-    var ca = document.cookie.split(';');
-    for(var i=0; i<ca.length; i++)
-    {
-      var c = ca[i].trim();
-      if (c.indexOf(name)==0) return c.substring(name.length,c.length);
-    }
-    return "";
-  };
   //加载百度地图API功能
   var map = new BMap.Map("allmap",{enableMapClick:false});
   var x = 115.85;
@@ -153,17 +139,7 @@
 
   map.addEventListener("dragend",function(){judgeIfRefresh()});
   map.addEventListener("zoomend",function(){judgeIfRefresh()});
-  init();
   getData();
-
-  function init()
-  {
-      if(token==null||token=="")
-      {
-          alert("请登陆后进入此页面");
-          window.location.href="login.html";
-      }
-  };
 
   function judgeIfRefresh()
   {
@@ -182,30 +158,23 @@
     $.ajax({
       url:'http://localhost:8881/traffic/structureData',
       type:'post',
-      data:{lat:point.lat,lng:point.lng,zoom:zoom,token:token},
+      data:{lat:point.lat,lng:point.lng,zoom:zoom},
       async : true,
       error:function(){
         alert('error');
       },
-      success:function(response){
-        if(response.flag==true)
+      success:function(datas){
+        console.log(datas);
+        map.clearOverlays();
+        var loads=datas.loads;
+        var structures=datas.structures;
+        for(var i=0;i<loads.length;i++)
         {
-          var datas=response.object;
-          console.log(datas);
-          map.clearOverlays();
-          var loads=datas.loads;
-          var structures=datas.structures;
-          for(var i=0;i<loads.length;i++)
-          {
-            drawLines(loads[i]);
-          }
-          for(var j=0;j<structures.length;j++)
-          {
-            drawPoints(structures[j]);
-          }
-        }else{
-          alert("token过期，请重新登陆");
-          window.location.href="login.html";
+          drawLines(loads[i]);
+        }
+        for(var j=0;j<structures.length;j++)
+        {
+          drawPoints(structures[j]);
         }
       }
     });
@@ -285,25 +254,18 @@
       error:function(){
         alert('error');
       },
-      success:function(response){
-        if(response.flag==true)
+      success:function(datas){
+        console.log(datas);
+        map.clearOverlays();
+        var loads=datas.loads;
+        var structures=datas.structures;
+        for(var i=0;i<loads.length;i++)
         {
-          var datas=response.object;
-          console.log(datas);
-          map.clearOverlays();
-          var loads=datas.loads;
-          var structures=datas.structures;
-          for(var i=0;i<loads.length;i++)
-          {
-            drawLines(loads[i]);
-          }
-          for(var j=0;j<structures.length;j++)
-          {
-            drawPoints(structures[j]);
-          }
-        }else{
-          alert("token过期，请重新登陆");
-          window.location.href="login.html";
+          drawLines(loads[i]);
+        }
+        for(var j=0;j<structures.length;j++)
+        {
+          drawPoints(structures[j]);
         }
       }
     });

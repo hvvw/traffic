@@ -3,6 +3,7 @@ package com.huwang.traffic_portal.util;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 public class CommonUtils {
 
@@ -37,5 +38,10 @@ public class CommonUtils {
     {
         int zoom=zooms.get(unit);
         return ((double)zoom*screenSize)/atUnit;
+    }
+
+    public static String GetGUID()
+    {
+        return UUID.randomUUID().toString().replace("-", "");
     }
 }
