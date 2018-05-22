@@ -48,7 +48,7 @@ public class FacilitiesDao extends BaseDao {
                     +" and display = "+true
                     +" and name like :names";
             Query query=currentSession().createQuery(hql);
-            query.setString("names",str);
+            query.setString("names","%"+str+"%");
             List<FacilitiesEntity> list = query.list();
             return list == null ? Collections.EMPTY_LIST : list;
         }

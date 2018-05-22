@@ -21,6 +21,7 @@ public class LoadEntity implements Serializable {
     private double pointLat;
     private double pointLng;
     private int showLevel;
+    private int agencyId;
     private List<Point> points;
 
     public void setPoints(List<Point> points) {
@@ -41,6 +42,15 @@ public class LoadEntity implements Serializable {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    @Column(name="agency_id")
+    public int getAgencyId() {
+        return agencyId;
+    }
+
+    public void setAgencyId(int agencyId) {
+        this.agencyId = agencyId;
     }
 
     @Column(name="name")

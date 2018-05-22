@@ -47,7 +47,7 @@ public class StructureDao extends BaseDao {
                     +" and display = "+true
                     +" and name like :str";
             Query query=currentSession().createQuery(hql);
-            query.setString("str",str);
+            query.setString("str","%"+str+"%");
             List<StructureEntity> list = query.list();
             return list == null ? Collections.EMPTY_LIST : list;
         }

@@ -45,7 +45,7 @@ public class AgencyDao extends BaseDao {
                     +" and lng between "+(lng-CommonUtils.ZoomTransform(unit))+" and "+(lng+CommonUtils.ZoomTransform(unit))
                     +" and name like :str";
             Query query=currentSession().createQuery(hql);
-            query.setString("str",str);
+            query.setString("str","%"+str+"%");
             List<AgencyEntity> list = query.list();
             return list == null ? Collections.EMPTY_LIST : list;
         }

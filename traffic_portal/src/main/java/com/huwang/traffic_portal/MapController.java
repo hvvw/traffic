@@ -246,16 +246,41 @@ public class MapController {
     @RequestMapping("/searchAgency")
     @ResponseBody
     public ResponseEntity searchAgency(@RequestParam(value = "lat", required = false) Double lat,
-                                           @RequestParam(value = "lng", required = false) Double lng,
-                                           @RequestParam(value = "zoom", required = false) Integer zoom,
-                                           @RequestParam(value = "searchData", required = false) String searchData,
-                                           @RequestParam(value = "token", required = false) String token) {
+                                       @RequestParam(value = "lng", required = false) Double lng,
+                                       @RequestParam(value = "zoom", required = false) Integer zoom,
+                                       @RequestParam(value = "searchData", required = false) String searchData,
+                                       @RequestParam(value = "token", required = false) String token) {
         log.info("[GET Agency Data]Start get lat=[{}],lng =[{}],zoom=[{}],token=[{}].", lat, lng, zoom, token);
         ResponseEntity responseEntity = new ResponseEntity();
         if (userService.verifyToken(token)) {
             List<AgencyEntity> agencys = agencyService.searchAgency(lat, lng, zoom,searchData);
             responseEntity.setFlag(true);
             responseEntity.setObject(agencys);
+        } else {
+            responseEntity.setFlag(false);
+            responseEntity.setObject("token错误或过期");
+        }
+        log.info("[Response Agency Data]Start return agencys obj=[{}].", responseEntity.getObject());
+        return responseEntity;
+    }
+
+    @RequestMapping("/searchAgencyLoads")
+    @ResponseBody
+    public ResponseEntity searchAgencyLoads(@RequestParam(value = "lat", required = false) Double lat,
+                                       @RequestParam(value = "lng", required = false) Double lng,
+                                       @RequestParam(value = "zoom", required = false) Integer zoom,
+                                       @RequestParam(value = "searchData", required = false) Integer searchData,
+                                       @RequestParam(value = "token", required = false) String token) {
+        log.info("[GET Agency Data]Start get lat=[{}],lng =[{}],zoom=[{}],token=[{}],searchData=[{}].", lat, lng, zoom, token,searchData);
+        ResponseEntity responseEntity = new ResponseEntity();
+        if (userService.verifyToken(token)) {
+            List<AgencyEntity> agencys = agencyService.getAgency(lat, lng, zoom);
+            List<LoadEntity> loads = loadService.searchAgencyLoads(lat, lng, zoom,searchData);
+            Map map = new HashMap();
+            map.put("agencys", agencys);
+            map.put("loads", loads);
+            responseEntity.setFlag(true);
+            responseEntity.setObject(map);
         } else {
             responseEntity.setFlag(false);
             responseEntity.setObject("token错误或过期");

@@ -49,9 +49,7 @@
     <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i
             class="fa fa-user fa-lg"></i></a>
       <ul class="dropdown-menu settings-menu dropdown-menu-right">
-        <li><a class="dropdown-item" href="page-user.html"><i class="fa fa-cog fa-lg"></i> Settings</a></li>
-        <li><a class="dropdown-item" href="page-user.html"><i class="fa fa-user fa-lg"></i> Profile</a></li>
-        <li><a class="dropdown-item" href="page-login.html"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
+        <li><a class="dropdown-item" href="login.html"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
       </ul>
     </li>
   </ul>
@@ -224,9 +222,9 @@
       polyline =new BMap.Polyline(mapPoints, {
        enableEditing: false,//是否启用线编辑，默认为false
        enableClicking: true,//是否响应点击事件，默认为true
-       strokeWeight:'3',//折线的宽度，以像素为单位
-       strokeOpacity: 0.8,//折线的透明度，取值范围0 - 1
-       strokeColor:"#8e301d" //折线颜色
+       strokeWeight:'4.5',//折线的宽度，以像素为单位
+       strokeOpacity: 1,//折线的透明度，取值范围0 - 1
+       strokeColor:"#556B2F" //折线颜色
      });
       polyline.addEventListener("click", function(){loadDetail(data)});  //添加点击事件
       map.addOverlay(polyline);          //增加折线

@@ -49,7 +49,6 @@ public class UserService {
             String mapJakcson = mapper.writeValueAsString(responses);
             JavaType javaType = mapper.getTypeFactory().constructParametricType(ArrayList.class, UserEntity.class);
             users = mapper.readValue(mapJakcson, javaType);
-            log.info(users.toString());
         } catch (Exception e) {
             log.error("exception");
         }
@@ -60,7 +59,6 @@ public class UserService {
             UserEntity user = users.get(0);
             long lastLoginTime = user.getLastLoginTime().getTime();
             long nowTime = System.currentTimeMillis();
-            log.info(lastLoginTime + "sd" + nowTime);
             if (nowTime - lastLoginTime >= 1000 * 3600)
                 return false;
             else return true;

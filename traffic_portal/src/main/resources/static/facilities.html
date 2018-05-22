@@ -49,9 +49,7 @@
     <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i
             class="fa fa-user fa-lg"></i></a>
       <ul class="dropdown-menu settings-menu dropdown-menu-right">
-        <li><a class="dropdown-item" href="page-user.html"><i class="fa fa-cog fa-lg"></i> Settings</a></li>
-        <li><a class="dropdown-item" href="page-user.html"><i class="fa fa-user fa-lg"></i> Profile</a></li>
-        <li><a class="dropdown-item" href="page-login.html"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
+        <li><a class="dropdown-item" href="login.html"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
       </ul>
     </li>
   </ul>
@@ -230,7 +228,8 @@
     function drawPoints(data)
     {
       var point = new BMap.Point(data.lng,data.lat);
-      var marker = new BMap.Marker(point);// 创建标注
+      var myIcon = new BMap.Icon("http://localhost:8881/traffic/static/img/facilities.png", new BMap.Size(32,32));
+      var marker = new BMap.Marker(point,{icon:myIcon});// 创建标注
       marker.disableDragging();           // 不可拖拽
       marker.addEventListener("click", function(){loadDetail(data)});  //添加点击事件
       map.addOverlay(marker);             // 将标注添加到地图中
