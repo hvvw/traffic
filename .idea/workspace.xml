@@ -74,23 +74,11 @@
       <change beforePath="$PROJECT_DIR$/traffic.iml" beforeDir="false" afterPath="$PROJECT_DIR$/traffic.iml" afterDir="false" />
     </list>
     <list default="true" id="82ba5d61-1a3b-41d6-b3b9-cb4b58d597ad" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/traffic_portal/src/main/resources/static/img/agency.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/traffic_portal/src/main/resources/static/img/facilities.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/traffic_manager/src/main/java/com/huwang/traffic_manager/RandomNumber.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/traffic_portal/src/main/java/com/huwang/traffic_portal/MapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/traffic_portal/src/main/java/com/huwang/traffic_portal/MapController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/traffic_portal/src/main/java/com/huwang/traffic_portal/dao/AgencyDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/traffic_portal/src/main/java/com/huwang/traffic_portal/dao/AgencyDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/traffic_portal/src/main/java/com/huwang/traffic_portal/dao/FacilitiesDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/traffic_portal/src/main/java/com/huwang/traffic_portal/dao/FacilitiesDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/traffic_portal/src/main/java/com/huwang/traffic_portal/dao/LoadDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/traffic_portal/src/main/java/com/huwang/traffic_portal/dao/LoadDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/traffic_portal/src/main/java/com/huwang/traffic_portal/dao/MaintenanceDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/traffic_portal/src/main/java/com/huwang/traffic_portal/dao/MaintenanceDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/traffic_portal/src/main/java/com/huwang/traffic_portal/dao/StructureDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/traffic_portal/src/main/java/com/huwang/traffic_portal/dao/StructureDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/traffic_portal/src/main/java/com/huwang/traffic_portal/entity/LoadEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/traffic_portal/src/main/java/com/huwang/traffic_portal/entity/LoadEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/traffic_portal/src/main/java/com/huwang/traffic_portal/service/LoadService.java" beforeDir="false" afterPath="$PROJECT_DIR$/traffic_portal/src/main/java/com/huwang/traffic_portal/service/LoadService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/traffic_portal/src/main/java/com/huwang/traffic_portal/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/traffic_portal/src/main/java/com/huwang/traffic_portal/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/traffic_portal/src/main/resources/static/agency.html" beforeDir="false" afterPath="$PROJECT_DIR$/traffic_portal/src/main/resources/static/agency.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/traffic_portal/src/main/resources/static/facilities.html" beforeDir="false" afterPath="$PROJECT_DIR$/traffic_portal/src/main/resources/static/facilities.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/traffic_portal/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/traffic_portal/src/main/resources/static/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/traffic_portal/src/main/resources/static/maintenance.html" beforeDir="false" afterPath="$PROJECT_DIR$/traffic_portal/src/main/resources/static/maintenance.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/traffic_portal/src/main/resources/static/structure.html" beforeDir="false" afterPath="$PROJECT_DIR$/traffic_portal/src/main/resources/static/structure.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/traffic_manager/src/main/java/com/huwang/traffic_manager/ElascsearchUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/traffic_manager/src/main/java/com/huwang/traffic_manager/ElascsearchUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/traffic_manager/src/main/java/com/huwang/traffic_manager/ElasticsearchService.java" beforeDir="false" afterPath="$PROJECT_DIR$/traffic_manager/src/main/java/com/huwang/traffic_manager/ElasticsearchService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/traffic_manager/src/main/java/com/huwang/traffic_manager/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/traffic_manager/src/main/java/com/huwang/traffic_manager/Main.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/traffic_common/target/" />
     <ignored path="$PROJECT_DIR$/traffic_manager/target/" />
@@ -109,96 +97,45 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MapController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/traffic_portal/src/main/java/com/huwang/traffic_portal/MapController.java">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/traffic_manager/src/main/java/com/huwang/traffic_manager/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="279" column="40" lean-forward="true" selection-start-line="279" selection-start-column="40" selection-end-line="279" selection-end-column="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoadService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/traffic_portal/src/main/java/com/huwang/traffic_portal/service/LoadService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1225">
-              <caret line="62" column="50" selection-start-line="62" selection-start-column="50" selection-end-line="62" selection-end-column="50" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoadDao.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/traffic_portal/src/main/java/com/huwang/traffic_portal/dao/LoadDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1525">
-              <caret line="78" column="49" selection-start-line="78" selection-start-column="49" selection-end-line="78" selection-end-column="49" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoadEntity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/traffic_portal/src/main/java/com/huwang/traffic_portal/entity/LoadEntity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="23" column="25" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="agency.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/traffic_portal/src/main/resources/static/agency.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="50" column="6" selection-start-line="50" selection-start-column="6" selection-end-line="52" selection-end-column="11" />
+            <state relative-caret-position="7">
+              <caret line="15" column="53" lean-forward="true" selection-start-line="15" selection-start-column="53" selection-end-line="15" selection-end-column="53" />
               <folding>
-                <element signature="n#style#0;n#p#1;n#label#0;n#div#1;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#1;n#div#1;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#333#334#0" expanded="true" />
+                <element signature="e#393#394#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="facilities.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/traffic_portal/src/main/resources/static/facilities.html">
+      <file leaf-file-name="RandomNumber.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/traffic_manager/src/main/java/com/huwang/traffic_manager/RandomNumber.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="52" column="11" lean-forward="true" selection-start-line="52" selection-start-column="11" selection-end-line="52" selection-end-column="11" />
+            <state relative-caret-position="75">
+              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/traffic_portal/src/main/resources/static/index.html">
+      <file leaf-file-name="ElasticsearchService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/traffic_manager/src/main/java/com/huwang/traffic_manager/ElasticsearchService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="52" column="11" lean-forward="true" selection-start-line="52" selection-start-column="11" selection-end-line="52" selection-end-column="11" />
+            <state relative-caret-position="552">
+              <caret line="94" column="38" lean-forward="true" selection-start-line="94" selection-start-column="38" selection-end-line="94" selection-end-column="38" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="maintenance.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/traffic_portal/src/main/resources/static/maintenance.html">
+      <file leaf-file-name="ElascsearchUtil.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/traffic_manager/src/main/java/com/huwang/traffic_manager/ElascsearchUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="51" column="39" selection-start-line="51" selection-start-column="39" selection-end-line="51" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="structure.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/traffic_portal/src/main/resources/static/structure.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
-              <caret line="50" column="57" lean-forward="true" selection-start-line="50" selection-start-column="57" selection-end-line="50" selection-end-column="57" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/traffic_portal/src/main/resources/static/login.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="353">
-              <caret line="69" column="14" lean-forward="true" selection-start-line="69" selection-start-column="14" selection-end-line="69" selection-end-column="14" />
+            <state relative-caret-position="131">
+              <caret line="56" column="44" lean-forward="true" selection-start-line="56" selection-start-column="44" selection-end-line="56" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -264,8 +201,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/traffic_portal/src/main/java/com/huwang/traffic_portal/entity/MaintenanceEntity.java" />
-        <option value="$PROJECT_DIR$/traffic_portal/src/main/java/com/huwang/traffic_portal/entity/agencyEntity.java" />
         <option value="$PROJECT_DIR$/traffic_manager/pom.xml" />
         <option value="$PROJECT_DIR$/traffic_manager/src/main/java/com/huwang/traffic_manager/ElascsearchService.java" />
         <option value="$PROJECT_DIR$/traffic_portal/src/main/java/com/huwang/traffic_portal/entity/Point.java" />
@@ -278,9 +213,6 @@
         <option value="$PROJECT_DIR$/traffic_portal/src/main/java/com/huwang/traffic_portal/service/AgencyService.java" />
         <option value="$PROJECT_DIR$/traffic_portal/src/main/resources/static/test.html" />
         <option value="$PROJECT_DIR$/traffic_portal/src/main/java/com/huwang/traffic_portal/entity/AgencyEntity.java" />
-        <option value="$PROJECT_DIR$/traffic_manager/src/main/java/com/huwang/traffic_manager/ElasticsearchService.java" />
-        <option value="$PROJECT_DIR$/traffic_manager/src/main/java/com/huwang/traffic_manager/Main.java" />
-        <option value="$PROJECT_DIR$/traffic_manager/src/main/java/com/huwang/traffic_manager/ElascsearchUtil.java" />
         <option value="$PROJECT_DIR$/traffic_portal/src/main/resources/templates/login.html" />
         <option value="$PROJECT_DIR$/traffic_portal/src/main/resources/templates/agency.html" />
         <option value="$PROJECT_DIR$/traffic_portal/src/main/resources/templates/facilities.html" />
@@ -315,6 +247,11 @@
         <option value="$PROJECT_DIR$/traffic_portal/src/main/resources/static/index.html" />
         <option value="$PROJECT_DIR$/traffic_portal/src/main/resources/static/maintenance.html" />
         <option value="$PROJECT_DIR$/traffic_portal/src/main/resources/static/structure.html" />
+        <option value="$PROJECT_DIR$/traffic_manager/src/main/java/com/huwang/traffic_manager/ElascsearchUtil.java" />
+        <option value="$PROJECT_DIR$/traffic_manager/src/main/java/com/huwang/traffic_manager/test.java" />
+        <option value="$PROJECT_DIR$/traffic_manager/src/main/java/com/huwang/traffic_manager/RandomNumber.java" />
+        <option value="$PROJECT_DIR$/traffic_manager/src/main/java/com/huwang/traffic_manager/ElasticsearchService.java" />
+        <option value="$PROJECT_DIR$/traffic_manager/src/main/java/com/huwang/traffic_manager/Main.java" />
       </list>
     </option>
   </component>
@@ -343,84 +280,37 @@
             <path>
               <item name="traffic" type="b2602c69:ProjectViewProjectNode" />
               <item name="traffic" type="462c0819:PsiDirectoryNode" />
-              <item name="traffic_portal" type="462c0819:PsiDirectoryNode" />
+              <item name="traffic_manager" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="traffic" type="b2602c69:ProjectViewProjectNode" />
               <item name="traffic" type="462c0819:PsiDirectoryNode" />
-              <item name="traffic_portal" type="462c0819:PsiDirectoryNode" />
+              <item name="traffic_manager" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="traffic" type="b2602c69:ProjectViewProjectNode" />
               <item name="traffic" type="462c0819:PsiDirectoryNode" />
-              <item name="traffic_portal" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="traffic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="traffic" type="462c0819:PsiDirectoryNode" />
-              <item name="traffic_portal" type="462c0819:PsiDirectoryNode" />
+              <item name="traffic_manager" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="traffic" type="b2602c69:ProjectViewProjectNode" />
               <item name="traffic" type="462c0819:PsiDirectoryNode" />
-              <item name="traffic_portal" type="462c0819:PsiDirectoryNode" />
+              <item name="traffic_manager" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="traffic_portal" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="traffic" type="b2602c69:ProjectViewProjectNode" />
               <item name="traffic" type="462c0819:PsiDirectoryNode" />
-              <item name="traffic_portal" type="462c0819:PsiDirectoryNode" />
+              <item name="traffic_manager" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="traffic_portal" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="traffic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="traffic" type="462c0819:PsiDirectoryNode" />
-              <item name="traffic_portal" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="traffic_portal" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="traffic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="traffic" type="462c0819:PsiDirectoryNode" />
-              <item name="traffic_portal" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="traffic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="traffic" type="462c0819:PsiDirectoryNode" />
-              <item name="traffic_portal" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="traffic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="traffic" type="462c0819:PsiDirectoryNode" />
-              <item name="traffic_portal" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="img" type="462c0819:PsiDirectoryNode" />
+              <item name="traffic_manager" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -475,7 +365,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.TrafficPortalApplication">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.huwang.traffic_manager.Main" />
       <module name="traffic_manager" />
@@ -512,28 +402,16 @@
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
-    <configuration name="TrafficCommonApplicationTests.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="traffic_common" />
+    <configuration name="test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.huwang.traffic_manager.test" />
+      <module name="traffic_manager" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.huwang.traffic_common.*" />
+          <option name="PATTERN" value="com.huwang.traffic_manager.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.huwang.traffic_common" />
-      <option name="MAIN_CLASS_NAME" value="com.huwang.traffic_common.TrafficCommonApplicationTests" />
-      <option name="METHOD_NAME" value="contextLoads" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
     </configuration>
     <configuration name="TrafficPortalApplicationTests.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="traffic_portal" />
@@ -600,16 +478,16 @@
       <item itemvalue="Application.TrafficManagerApplication" />
       <item itemvalue="Application.TrafficPortalApplication" />
       <item itemvalue="JUnit.TrafficPortalApplicationTests.contextLoads" />
-      <item itemvalue="JUnit.TrafficCommonApplicationTests.contextLoads" />
       <item itemvalue="Application.Main" />
+      <item itemvalue="Application.test" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.TrafficPortalApplication" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.test" />
+        <item itemvalue="Application.TrafficPortalApplication" />
         <item itemvalue="JUnit.TrafficPortalApplicationTests.contextLoads" />
         <item itemvalue="Application.TrafficManagerApplication" />
-        <item itemvalue="JUnit.TrafficCommonApplicationTests.contextLoads" />
       </list>
     </recent_temporary>
   </component>
@@ -660,7 +538,14 @@
       <option name="project" value="LOCAL" />
       <updated>1526696525232</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="修改bug">
+      <created>1526956830864</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1526956830865</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -706,7 +591,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32874355" />
@@ -716,12 +600,12 @@
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5015129" side_tool="true" weight="0.9139415" />
       <window_info anchor="right" id="Maven Projects" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.8777969" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49848714" weight="0.9139415" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="9" visible="true" weight="0.8777969" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49848714" weight="0.54733217" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2965204" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.295764" />
       <window_info anchor="bottom" id="Problems" order="10" weight="0.32874355" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -736,6 +620,35 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32874355" />
     </layout>
+    <layout-to-restore>
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32874355" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49848714" visible="true" weight="0.54733217" />
+      <window_info anchor="bottom" id="Problems" order="10" weight="0.32874355" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2965204" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32874355" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39931154" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5015129" side_tool="true" weight="0.9139415" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.8777969" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32874355" />
+      <window_info anchor="right" id="Maven Projects" order="6" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -772,7 +685,8 @@
     <MESSAGE value="完成全部功能" />
     <MESSAGE value="完善系统" />
     <MESSAGE value="添加安全模块" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加安全模块" />
+    <MESSAGE value="修改bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改bug" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -780,45 +694,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/traffic_portal/src/main/java/com/huwang/traffic_portal/entity/LoadEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="23" column="25" lean-forward="true" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/traffic_portal/src/main/resources/static/agency.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6125">
-          <caret line="245" column="22" lean-forward="true" selection-start-line="245" selection-start-column="22" selection-end-line="245" selection-end-column="22" />
-          <folding>
-            <element signature="n#style#0;n#p#1;n#label#0;n#div#1;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#1;n#div#1;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/traffic_manager/src/main/java/com/huwang/traffic_manager/ElasticsearchService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="35" column="49" lean-forward="true" selection-start-line="35" selection-start-column="49" selection-end-line="35" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/traffic_portal/src/main/java/com/huwang/traffic_portal/entity/Point.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="16" column="7" lean-forward="true" selection-start-line="16" selection-start-column="7" selection-end-line="17" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/Java/src.zip!/java/util/Collections.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="4437" lean-forward="true" selection-start-line="4437" selection-end-line="4437" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/traffic_portal/src/main/resources/static/login.html" />
     <entry file="file://$PROJECT_DIR$/traffic_portal/src/main/resources/templates/agency.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -906,13 +781,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="500">
           <caret line="20" column="16" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/Java/src.zip!/java/util/Date.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="176" column="28" lean-forward="true" selection-start-line="176" selection-start-column="28" selection-end-line="176" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -1104,8 +972,65 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/traffic_portal/src/main/resources/static/structure.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="50" column="57" lean-forward="true" selection-start-line="50" selection-start-column="57" selection-end-line="50" selection-end-column="57" />
+        <state relative-caret-position="447">
+          <caret line="59" column="33" lean-forward="true" selection-start-line="59" selection-start-column="33" selection-end-line="59" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/Java/src.zip!/java/util/Date.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="163" column="11" selection-start-line="163" selection-start-column="11" selection-end-line="163" selection-end-column="11" />
+          <folding>
+            <element signature="e#6390#6391#0" expanded="true" />
+            <element signature="e#6438#6439#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/Java/src.zip!/java/util/Random.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="534" column="36" lean-forward="true" selection-start-line="534" selection-start-column="36" selection-end-line="534" selection-end-column="36" />
+          <folding>
+            <element signature="e#21068#21069#0" expanded="true" />
+            <element signature="e#21142#21143#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/traffic_manager/src/main/java/com/huwang/traffic_manager/ElascsearchUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="56" column="44" lean-forward="true" selection-start-line="56" selection-start-column="44" selection-end-line="56" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/traffic_manager/src/main/java/com/huwang/traffic_manager/RandomNumber.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/traffic_manager/src/main/java/com/huwang/traffic_manager/ElasticsearchService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="552">
+          <caret line="94" column="38" lean-forward="true" selection-start-line="94" selection-start-column="38" selection-end-line="94" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/traffic_manager/src/main/java/com/huwang/traffic_manager/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7">
+          <caret line="15" column="53" lean-forward="true" selection-start-line="15" selection-start-column="53" selection-end-line="15" selection-end-column="53" />
+          <folding>
+            <element signature="e#333#334#0" expanded="true" />
+            <element signature="e#393#394#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

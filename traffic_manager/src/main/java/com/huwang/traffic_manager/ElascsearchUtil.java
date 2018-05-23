@@ -49,7 +49,7 @@ public class ElascsearchUtil {
             public void onResponse(BulkResponse bulkResponse) {
                 for (BulkItemResponse bulkItemResponse : bulkResponse) {
                     if (bulkItemResponse.getOpType() == DocWriteRequest.OpType.INDEX) {
-                        log.info("成功数据发送一条");
+                        log.info("成功数据发送一条:{}",bulkItemResponse.getResponse());
                     }
                 }
             }
