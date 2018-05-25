@@ -34,10 +34,6 @@ public class LoadDao extends BaseDao {
     public List<LoadEntity> getLoads(Double lat,Double lng,Integer unit)
     {
         if (lat!=null&&lng!=null&&unit!=null) {
-            /*criteria.add(Restrictions.between("pointLat",lat-CommonUtils.ZoomTransform(unit),lat+CommonUtils.ZoomTransform(unit)));
-            criteria.add(Restrictions.between("pointLng",lat-CommonUtils.ZoomTransform(unit),lat+CommonUtils.ZoomTransform(unit)));
-            criteria.add(Restrictions.le("showLevel",unit));
-            criteria.add(Restrictions.eq("display",true));*/
             String hql="from LoadEntity where pointLat between "+(lat-CommonUtils.ZoomTransform(unit))+" and "+(lat+CommonUtils.ZoomTransform(unit))
                     +" and pointLng between "+(lng-CommonUtils.ZoomTransform(unit))+" and "+(lng+CommonUtils.ZoomTransform(unit))
                     +" and showLevel <= " +unit

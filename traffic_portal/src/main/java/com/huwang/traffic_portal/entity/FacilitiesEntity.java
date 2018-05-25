@@ -20,6 +20,16 @@ public class FacilitiesEntity implements Serializable {
     private Date createDate;
     private int loadId;
     private boolean display;
+    private int showLevel;
+
+    @Column(name="show_level")
+    public int getShowLevel() {
+        return showLevel;
+    }
+
+    public void setShowLevel(int showLevel) {
+        this.showLevel = showLevel;
+    }
 
     @Id
     @Column(name="id")

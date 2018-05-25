@@ -158,7 +158,7 @@ public class DatabaseConfig {
 
 	public Properties getDBProperties() {
 		Properties props = new Properties();
-		props.put("hibernate.show_sql", false);
+		props.put("hibernate.show_sql", true);
 		props.put("hibernate.generate_statistics", false);
 		props.put("hibernate.connection.isolation", TRANSACTION_READ_COMMITTED);
 		props.put("hibernate.use_sql_comments", true);

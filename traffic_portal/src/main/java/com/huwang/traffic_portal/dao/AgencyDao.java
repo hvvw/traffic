@@ -29,7 +29,8 @@ public class AgencyDao extends BaseDao {
     {
         if (lat!=null&&lng!=null&&unit!=null) {
             String hql="from AgencyEntity where lat between "+(lat-CommonUtils.ZoomTransform(unit))+" and "+(lat+CommonUtils.ZoomTransform(unit))
-                    +" and lng between "+(lng-CommonUtils.ZoomTransform(unit))+" and "+(lng+CommonUtils.ZoomTransform(unit));
+                    +" and lng between "+(lng-CommonUtils.ZoomTransform(unit))+" and "+(lng+CommonUtils.ZoomTransform(unit))
+                    +" and showLevel <= " +unit;
             Query query=currentSession().createQuery(hql);
             List<AgencyEntity> list = query.list();
             return list == null ? Collections.EMPTY_LIST : list;
@@ -43,6 +44,7 @@ public class AgencyDao extends BaseDao {
         if (lat!=null&&lng!=null&&unit!=null) {
             String hql="from AgencyEntity where lat between "+(lat-CommonUtils.ZoomTransform(unit))+" and "+(lat+CommonUtils.ZoomTransform(unit))
                     +" and lng between "+(lng-CommonUtils.ZoomTransform(unit))+" and "+(lng+CommonUtils.ZoomTransform(unit))
+                    +" and showLevel <= " +unit
                     +" and name like :str";
             Query query=currentSession().createQuery(hql);
             query.setString("str","%"+str+"%");

@@ -30,6 +30,7 @@ public class StructureDao extends BaseDao {
         if (lat!=null&&lng!=null&&unit!=null) {
             String hql="from StructureEntity where lat between "+(lat-CommonUtils.ZoomTransform(unit))+" and "+(lat+CommonUtils.ZoomTransform(unit))
                     +" and lng between "+(lng-CommonUtils.ZoomTransform(unit))+" and "+(lng+CommonUtils.ZoomTransform(unit))
+                    +" and showLevel <= " +unit
                     +" and display = "+true;
             Query query=currentSession().createQuery(hql);
             List<StructureEntity> list = query.list();
@@ -45,6 +46,7 @@ public class StructureDao extends BaseDao {
             String hql="from StructureEntity where lat between "+(lat-CommonUtils.ZoomTransform(unit))+" and "+(lat+CommonUtils.ZoomTransform(unit))
                     +" and lng between "+(lng-CommonUtils.ZoomTransform(unit))+" and "+(lng+CommonUtils.ZoomTransform(unit))
                     +" and display = "+true
+                    +" and showLevel <= " +unit
                     +" and name like :str";
             Query query=currentSession().createQuery(hql);
             query.setString("str","%"+str+"%");

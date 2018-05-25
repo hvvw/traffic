@@ -31,6 +31,7 @@ public class FacilitiesDao extends BaseDao {
         if (lat!=null&&lng!=null&&unit!=null) {
             String hql="from FacilitiesEntity where lat between "+(lat-CommonUtils.ZoomTransform(unit))+" and "+(lat+CommonUtils.ZoomTransform(unit))
                     +" and lng between "+(lng-CommonUtils.ZoomTransform(unit))+" and "+(lng+CommonUtils.ZoomTransform(unit))
+                    +" and showLevel <= " +unit
                     +" and display = "+true;
             Query query=currentSession().createQuery(hql);
             List<FacilitiesEntity> list = query.list();
@@ -46,6 +47,7 @@ public class FacilitiesDao extends BaseDao {
             String hql="from FacilitiesEntity where lat between "+(lat-CommonUtils.ZoomTransform(unit))+" and "+(lat+CommonUtils.ZoomTransform(unit))
                     +" and lng between "+(lng-CommonUtils.ZoomTransform(unit))+" and "+(lng+CommonUtils.ZoomTransform(unit))
                     +" and display = "+true
+                    +" and showLevel <= " +unit
                     +" and name like :names";
             Query query=currentSession().createQuery(hql);
             query.setString("names","%"+str+"%");

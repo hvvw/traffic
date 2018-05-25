@@ -30,6 +30,7 @@ public class MaintenanceDao extends BaseDao {
         if (lat!=null&&lng!=null&&unit!=null) {
             String hql="from MaintenanceEntity where centerPointLat between "+(lat-CommonUtils.ZoomTransform(unit))+" and "+(lat+CommonUtils.ZoomTransform(unit))
                     +" and centerPointLng between "+(lng-CommonUtils.ZoomTransform(unit))+" and "+(lng+CommonUtils.ZoomTransform(unit))
+                    +" and showLevel <= " +unit
                     +" and display = "+true;
             Query query=currentSession().createQuery(hql);
             List<MaintenanceEntity> list = query.list();
@@ -45,6 +46,7 @@ public class MaintenanceDao extends BaseDao {
             String hql="from MaintenanceEntity where centerPointLat between "+(lat-CommonUtils.ZoomTransform(unit))+" and "+(lat+CommonUtils.ZoomTransform(unit))
                     +" and centerPointLng between "+(lng-CommonUtils.ZoomTransform(unit))+" and "+(lng+CommonUtils.ZoomTransform(unit))
                     +" and display = "+true
+                    +" and showLevel <= " +unit
                     +" and plantVariety like :str";
             Query query=currentSession().createQuery(hql);
             query.setString("str","%"+str+"%");

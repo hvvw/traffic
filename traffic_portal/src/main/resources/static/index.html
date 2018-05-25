@@ -178,7 +178,8 @@
     var nowPoint=map.getCenter();
     var nowZoom=map.getZoom();
     if(nowPoint.lat-point.lat>zooms[nowZoom-3]/20000||nowPoint.lat-point.lat<-zooms[nowZoom-3]/20000
-      ||nowPoint.lng-point.lng>zooms[nowZoom-3]/20000||nowPoint.lng-point.lng<-zooms[nowZoom-3]/20000)
+      ||nowPoint.lng-point.lng>zooms[nowZoom-3]/20000||nowPoint.lng-point.lng<-zooms[nowZoom-3]/20000
+      ||nowZoom-zoom>=1||zoom-nowZoom>=1)
     {
       point=nowPoint;
       zoom=nowZoom;

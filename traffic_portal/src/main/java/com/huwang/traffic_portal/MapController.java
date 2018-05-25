@@ -49,7 +49,7 @@ public class MapController {
                                   @RequestParam(value = "lng", required = false) Double lng,
                                   @RequestParam(value = "zoom", required = false) Integer zoom,
                                   @RequestParam(value = "token", required = false) String token) {
-        log.info("[GET Load Data]Start get lat=[{}],lng =[{}],zoom=[{}],token=[{}].", lat, lng, zoom, token);
+        log.info("[GET loadData Data]Start get lat=[{}],lng =[{}],zoom=[{}],token=[{}].", lat, lng, zoom, token);
         ResponseEntity responseEntity = new ResponseEntity();
         if (userService.verifyToken(token)) {
             List<LoadEntity> loads = loadService.getLoads(lat, lng, zoom);
@@ -59,7 +59,7 @@ public class MapController {
             responseEntity.setFlag(false);
             responseEntity.setObject("token错误或过期");
         }
-        log.info("[Response Load Data]Start return loads obj =[{}].", responseEntity.getObject());
+        log.info("[Response loadData Data]Start return loads obj =[{}].", responseEntity.getObject());
         return responseEntity;
     }
 
@@ -70,7 +70,7 @@ public class MapController {
                                      @RequestParam(value = "zoom", required = false) Integer zoom,
                                      @RequestParam(value = "token", required = false) String token,
                                      @RequestParam(value = "searchData", required = false) String searchData) {
-        log.info("[GET Load Data]Start get lat=[{}],lng =[{}],zoom=[{}],searchData=[{}],token=[{}].", lat, lng, zoom, searchData, token);
+        log.info("[GET searchLoad Data]Start get lat=[{}],lng =[{}],zoom=[{}],searchData=[{}],token=[{}].", lat, lng, zoom, searchData, token);
         ResponseEntity responseEntity = new ResponseEntity();
         if (userService.verifyToken(token)) {
             List<LoadEntity> loads = loadService.searchLoad(lat, lng, zoom, searchData);
@@ -80,7 +80,7 @@ public class MapController {
             responseEntity.setFlag(false);
             responseEntity.setObject("token错误或过期");
         }
-        log.info("[Response Load Data]Start return loads obj =[{}].", responseEntity.getObject());
+        log.info("[Response searchLoad Data]Start return loads obj =[{}].", responseEntity.getObject());
         return responseEntity;
     }
 
@@ -90,7 +90,7 @@ public class MapController {
                                        @RequestParam(value = "lng", required = false) Double lng,
                                        @RequestParam(value = "zoom", required = false) Integer zoom,
                                        @RequestParam(value = "token", required = false) String token) {
-        log.info("[GET Structure Data]Start get lat=[{}],lng =[{}],zoom=[{}],token=[{}].", lat, lng, zoom, token);
+        log.info("[GET structureData Data]Start get lat=[{}],lng =[{}],zoom=[{}],token=[{}].", lat, lng, zoom, token);
         ResponseEntity responseEntity = new ResponseEntity();
         if (userService.verifyToken(token)) {
             List<StructureEntity> structures = structureService.getStructures(lat, lng, zoom);
@@ -104,7 +104,7 @@ public class MapController {
             responseEntity.setFlag(false);
             responseEntity.setObject("token错误或过期");
         }
-        log.info("[Response Structure Data]Start return structures obj=[{}].", responseEntity.getObject());
+        log.info("[Response structureData Data]Start return structures obj=[{}].", responseEntity.getObject());
         return responseEntity;
     }
 
@@ -115,7 +115,7 @@ public class MapController {
                                           @RequestParam(value = "zoom", required = false) Integer zoom,
                                           @RequestParam(value = "searchData", required = false) String searchData,
                                           @RequestParam(value = "token", required = false) String token) {
-        log.info("[GET Structure Data]Start get lat=[{}],lng =[{}],zoom=[{}],token=[{}].", lat, lng, zoom, token);
+        log.info("[GET searchStructure Data]Start get lat=[{}],lng =[{}],zoom=[{}],token=[{}].", lat, lng, zoom, token);
         ResponseEntity responseEntity = new ResponseEntity();
         if (userService.verifyToken(token)) {
             List<StructureEntity> structures = structureService.searchStructures(lat, lng, zoom, searchData);
@@ -129,7 +129,7 @@ public class MapController {
             responseEntity.setFlag(false);
             responseEntity.setObject("token错误或过期");
         }
-        log.info("[Response Structure Data]Start return structures obj=[{}].", responseEntity.getObject());
+        log.info("[Response searchStructure Data]Start return structures obj=[{}].", responseEntity.getObject());
         return responseEntity;
     }
 
@@ -139,7 +139,7 @@ public class MapController {
                                         @RequestParam(value = "lng", required = false) Double lng,
                                         @RequestParam(value = "zoom", required = false) Integer zoom,
                                         @RequestParam(value = "token", required = false) String token) {
-        log.info("[GET Facilities Data]Start get lat=[{}],lng =[{}],zoom=[{}],token=[{}].", lat, lng, zoom, token);
+        log.info("[GET facilities Data]Start get lat=[{}],lng =[{}],zoom=[{}],token=[{}].", lat, lng, zoom, token);
         ResponseEntity responseEntity = new ResponseEntity();
         if (userService.verifyToken(token)) {
             List<FacilitiesEntity> facilities = facilitiesService.getFacilities(lat, lng, zoom);
@@ -153,7 +153,7 @@ public class MapController {
             responseEntity.setFlag(false);
             responseEntity.setObject("token错误或过期");
         }
-        log.info("[Response Facilities Data]Start return facilities obj=[{}].", responseEntity.getObject());
+        log.info("[Response facilities Data]Start return facilities obj=[{}].", responseEntity.getObject());
         return responseEntity;
     }
 
@@ -164,7 +164,7 @@ public class MapController {
                                            @RequestParam(value = "zoom", required = false) Integer zoom,
                                            @RequestParam(value = "searchData", required = false) String searchData,
                                            @RequestParam(value = "token", required = false) String token) {
-        log.info("[GET Load Data]Start get lat=[{}],lng =[{}],zoom=[{}],searchData=[{}],token=[{}].", lat, lng, zoom, searchData, token);
+        log.info("[GET searchFacilities Data]Start get lat=[{}],lng =[{}],zoom=[{}],searchData=[{}],token=[{}].", lat, lng, zoom, searchData, token);
         ResponseEntity responseEntity = new ResponseEntity();
         if (userService.verifyToken(token)) {
             List<FacilitiesEntity> facilities = facilitiesService.searchFacilities(lat, lng, zoom, searchData);
@@ -178,7 +178,7 @@ public class MapController {
             responseEntity.setFlag(false);
             responseEntity.setObject("token错误或过期");
         }
-        log.info("[Response Facilities Data]Start return facilities obj=[{}].", responseEntity.getObject());
+        log.info("[Response searchFacilities Data]Start return facilities obj=[{}].", responseEntity.getObject());
         return responseEntity;
     }
 
@@ -188,7 +188,7 @@ public class MapController {
                                          @RequestParam(value = "lng", required = false) Double lng,
                                          @RequestParam(value = "zoom", required = false) Integer zoom,
                                          @RequestParam(value = "token", required = false) String token) {
-        log.info("[GET Maintenances Data]Start get lat=[{}],lng =[{}],zoom=[{}],token=[{}].", lat, lng, zoom, token);
+        log.info("[GET maintenanceData Data]Start get lat=[{}],lng =[{}],zoom=[{}],token=[{}].", lat, lng, zoom, token);
         ResponseEntity responseEntity = new ResponseEntity();
         if (userService.verifyToken(token)) {
             List<MaintenanceEntity> maintenances = maintenanceService.getMaintenance(lat, lng, zoom);
@@ -198,7 +198,7 @@ public class MapController {
             responseEntity.setFlag(false);
             responseEntity.setObject("token错误或过期");
         }
-        log.info("[Response Maintenances Data]Start return maintenances obj=[{}].", responseEntity.getObject());
+        log.info("[Response maintenanceData Data]Start return maintenances obj=[{}].", responseEntity.getObject());
         return responseEntity;
     }
 
@@ -209,7 +209,7 @@ public class MapController {
                                             @RequestParam(value = "zoom", required = false) Integer zoom,
                                             @RequestParam(value = "searchData", required = false) String searchData,
                                             @RequestParam(value = "token", required = false) String token) {
-        log.info("[GET Maintenances Data]Start get lat=[{}],lng =[{}],zoom=[{}],token=[{}].", lat, lng, zoom, token);
+        log.info("[GET searchMaintenance Data]Start get lat=[{}],lng =[{}],zoom=[{}],token=[{}].", lat, lng, zoom, token);
         ResponseEntity responseEntity = new ResponseEntity();
         if (userService.verifyToken(token)) {
             List<MaintenanceEntity> maintenances = maintenanceService.searchMaintenance(lat, lng, zoom, searchData);
@@ -219,7 +219,7 @@ public class MapController {
             responseEntity.setFlag(false);
             responseEntity.setObject("token错误或过期");
         }
-        log.info("[Response Maintenances Data]Start return maintenances obj=[{}].", responseEntity.getObject());
+        log.info("[Response searchMaintenance Data]Start return maintenances obj=[{}].", responseEntity.getObject());
         return responseEntity;
     }
 
@@ -229,7 +229,7 @@ public class MapController {
                                         @RequestParam(value = "lng", required = false) Double lng,
                                         @RequestParam(value = "zoom", required = false) Integer zoom,
                                         @RequestParam(value = "token", required = false) String token) {
-        log.info("[GET Agency Data]Start get lat=[{}],lng =[{}],zoom=[{}],token=[{}].", lat, lng, zoom, token);
+        log.info("[GET agencyData Data]Start get lat=[{}],lng =[{}],zoom=[{}],token=[{}].", lat, lng, zoom, token);
         ResponseEntity responseEntity = new ResponseEntity();
         if (userService.verifyToken(token)) {
             List<AgencyEntity> agencys = agencyService.getAgency(lat, lng, zoom);
@@ -239,7 +239,7 @@ public class MapController {
             responseEntity.setFlag(false);
             responseEntity.setObject("token错误或过期");
         }
-        log.info("[Response Agency Data]Start return agencys obj=[{}].", responseEntity.getObject());
+        log.info("[Response agencyData Data]Start return agencys obj=[{}].", responseEntity.getObject());
         return responseEntity;
     }
 
@@ -250,7 +250,7 @@ public class MapController {
                                        @RequestParam(value = "zoom", required = false) Integer zoom,
                                        @RequestParam(value = "searchData", required = false) String searchData,
                                        @RequestParam(value = "token", required = false) String token) {
-        log.info("[GET Agency Data]Start get lat=[{}],lng =[{}],zoom=[{}],token=[{}].", lat, lng, zoom, token);
+        log.info("[GET searchAgency Data]Start get lat=[{}],lng =[{}],zoom=[{}],token=[{}].", lat, lng, zoom, token);
         ResponseEntity responseEntity = new ResponseEntity();
         if (userService.verifyToken(token)) {
             List<AgencyEntity> agencys = agencyService.searchAgency(lat, lng, zoom,searchData);
@@ -260,7 +260,7 @@ public class MapController {
             responseEntity.setFlag(false);
             responseEntity.setObject("token错误或过期");
         }
-        log.info("[Response Agency Data]Start return agencys obj=[{}].", responseEntity.getObject());
+        log.info("[Response searchAgency Data]Start return agencys obj=[{}].", responseEntity.getObject());
         return responseEntity;
     }
 
@@ -271,7 +271,7 @@ public class MapController {
                                        @RequestParam(value = "zoom", required = false) Integer zoom,
                                        @RequestParam(value = "searchData", required = false) Integer searchData,
                                        @RequestParam(value = "token", required = false) String token) {
-        log.info("[GET Agency Data]Start get lat=[{}],lng =[{}],zoom=[{}],token=[{}],searchData=[{}].", lat, lng, zoom, token,searchData);
+        log.info("[GET searchAgencyLoads Data]Start get lat=[{}],lng =[{}],zoom=[{}],token=[{}],searchData=[{}].", lat, lng, zoom, token,searchData);
         ResponseEntity responseEntity = new ResponseEntity();
         if (userService.verifyToken(token)) {
             List<AgencyEntity> agencys = agencyService.getAgency(lat, lng, zoom);
@@ -285,7 +285,7 @@ public class MapController {
             responseEntity.setFlag(false);
             responseEntity.setObject("token错误或过期");
         }
-        log.info("[Response Agency Data]Start return agencys obj=[{}].", responseEntity.getObject());
+        log.info("[Response searchAgencyLoads Data]Start return agencys obj=[{}].", responseEntity.getObject());
         return responseEntity;
     }
 

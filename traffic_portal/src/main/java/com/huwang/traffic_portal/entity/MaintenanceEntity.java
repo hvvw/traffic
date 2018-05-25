@@ -20,6 +20,16 @@ public class MaintenanceEntity implements Serializable {
     private double afforestedArea;
     private boolean display;
     private List<Point> points;
+    private int showLevel;
+
+    @Column(name="show_level")
+    public int getShowLevel() {
+        return showLevel;
+    }
+
+    public void setShowLevel(int showLevel) {
+        this.showLevel = showLevel;
+    }
 
     public void setPoints(List<Point> points) {
         this.points = points;
